@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //TODO Remove later
-        startActivity(new Intent(MainActivity.this, MapsActivity.class));
+        startActivity(new Intent(MainActivity.this, DrawerActivity.class));
         finish();
         //
 
