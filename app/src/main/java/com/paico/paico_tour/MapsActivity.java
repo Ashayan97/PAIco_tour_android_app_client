@@ -68,7 +68,12 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         locationPerm();
         SupportMapFragment mapFragment = (SupportMapFragment) FragmentManager.findFragment(view.findViewById(R.id.map));
         mapFragment.getMapAsync(this);
+        markPlaces();
         initializeMapAutocomplete(view);
+    }
+
+    private void markPlaces() {
+        //TODO
     }
 
     private void initializeMapAutocomplete(View view) {
@@ -87,6 +92,9 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
             public void onPlaceSelected(Place place) {
                 // TODO: Get info about the selected place.
                 Log.i("TAG", "Place: " + place.getName() + ", " + place.getId());
+                LatLng currentLocation = new LatLng(place.getLatLng().latitude, place.getLatLng().longitude);
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 18));
+
             }
 
             @Override
@@ -107,6 +115,8 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
                         if (location != null) {
 
                             LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
+                            //TODO remove next line
+                            mMap.addMarker(new MarkerOptions().position(currentLocation).title("my location"));
                             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 18));
                         } else {
 
