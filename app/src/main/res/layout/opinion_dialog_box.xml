@@ -104,11 +104,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2">
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent">-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-<!--            </androidx.recyclerview.widget.RecyclerView>-->
+            </androidx.recyclerview.widget.RecyclerView>
 
 
         </LinearLayout>
@@ -137,11 +137,11 @@
             android:gravity="center"
             android:text="@string/places_you_should_see"
             />
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:id="@+id/opinion_dialog_list"-->
-<!--            />-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/opinion_dialog_list"
+            />
 
     </LinearLayout>
 </LinearLayout>
