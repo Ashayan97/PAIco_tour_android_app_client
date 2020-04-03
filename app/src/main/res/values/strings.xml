@@ -32,5 +32,6 @@
     <string name="title_activity_drawer">DrawerActivity</string>
     <string name="description">Description:</string>
     <string name="suggestions">Suggestions</string>
+    <string name="places_you_should_see">Places you should see:</string>
 
 </resources>

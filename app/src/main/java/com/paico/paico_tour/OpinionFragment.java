@@ -59,7 +59,7 @@ public class OpinionFragment extends Fragment {
             }
         };
         Collections.sort(opinionList, comparator);
-        OpinionViewCardViewHandler opinionAdapter = new OpinionViewCardViewHandler(opinionList);
+        OpinionViewCardViewHandler opinionAdapter = new OpinionViewCardViewHandler(opinionList,getContext());
         opinionListView.setAdapter(opinionAdapter);
         opinionListView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
