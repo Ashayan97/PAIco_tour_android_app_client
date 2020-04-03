@@ -10,10 +10,10 @@ import java.io.InputStream;
 public class Opinion {
     private String username;
     private String description;
-    private int rate;
+    private float rate;
     private String profilePicAddress;
 
-    public Opinion(String username, String description, int rate, String profilePicAddress) {
+    public Opinion(String username, String description, float rate, String profilePicAddress) {
         this.username = username;
         this.description = description;
         this.rate = rate;
@@ -36,11 +36,11 @@ public class Opinion {
         this.description = description;
     }
 
-    public int getRate() {
+    public float getRate() {
         return rate;
     }
 
-    public void setRate(int rate) {
+    public void setRate(float rate) {
         this.rate = rate;
     }
 
