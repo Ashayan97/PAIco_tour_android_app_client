@@ -12,12 +12,31 @@ public class Opinion {
     private String description;
     private float rate;
     private String profilePicAddress;
+    private Places[] places;
+    private String[] galleryUrls;
 
     public Opinion(String username, String description, float rate, String profilePicAddress) {
         this.username = username;
         this.description = description;
         this.rate = rate;
         this.profilePicAddress = profilePicAddress;
+    }
+
+
+    public String[] getGalleryUrls() {
+        return galleryUrls;
+    }
+
+    public void setGalleryUrls(String[] galleryUrls) {
+        this.galleryUrls = galleryUrls;
+    }
+
+    public Places[] getPlaces() {
+        return places;
+    }
+
+    public void setPlaces(Places[] places) {
+        this.places = places;
     }
 
     public String getUsername() {
@@ -48,7 +67,8 @@ public class Opinion {
         return profilePicAddress;
     }
 
-    public Bitmap getProfilePic() { ;
+    public Bitmap getProfilePic() {
+        ;
         String urldisplay = profilePicAddress;
         Bitmap mIcon11 = null;
         try {
@@ -61,6 +81,7 @@ public class Opinion {
         return mIcon11;
 
     }
+
     public void setProfilePicAddress(String profilePicAddress) {
         this.profilePicAddress = profilePicAddress;
     }

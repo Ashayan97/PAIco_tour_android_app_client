@@ -33,5 +33,6 @@
     <string name="description">Description:</string>
     <string name="suggestions">Suggestions</string>
     <string name="places_you_should_see">Places you should see:</string>
+    <string name="place_name">place name</string>
 
 </resources>
