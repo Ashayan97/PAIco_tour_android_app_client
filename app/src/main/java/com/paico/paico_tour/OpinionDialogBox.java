@@ -9,7 +9,10 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.Collections;
 
 public class OpinionDialogBox extends Dialog {
     private Opinion opinion;
@@ -21,9 +24,9 @@ public class OpinionDialogBox extends Dialog {
     private RecyclerView places;
 
 
-    public OpinionDialogBox(@NonNull Context context,Opinion opinion) {
+    public OpinionDialogBox(@NonNull Context context, Opinion opinion) {
         super(context);
-        this.opinion=opinion;
+        this.opinion = opinion;
     }
 
     @Override
@@ -36,10 +39,17 @@ public class OpinionDialogBox extends Dialog {
     }
 
     private void findView() {
-        description=findViewById(R.id.opinion_dialog_description);
-        username= findViewById(R.id.opinion_dialog_username);
+        description = findViewById(R.id.opinion_dialog_description);
+        username = findViewById(R.id.opinion_dialog_username);
         profilePic = findViewById(R.id.opinion_dialog_profile_pic);
         ratingBar = findViewById(R.id.opinion_dialog_rating_bar);
+        gallery = findViewById(R.id.opinion_dialog_gallery);
+        places = findViewById(R.id.opinion_dialog_list);
 
-            }
+        OpinionGalleryCardViewHandler galleryAdapter = new OpinionGalleryCardViewHandler(opinion.getGalleryUrls(), opinion.getPlacesGallery());
+        gallery.setAdapter(galleryAdapter);
+        gallery.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+    }
 }

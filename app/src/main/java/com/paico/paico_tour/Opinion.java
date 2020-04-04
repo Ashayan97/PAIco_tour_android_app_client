@@ -14,6 +14,7 @@ public class Opinion {
     private String profilePicAddress;
     private Places[] places;
     private String[] galleryUrls;
+    private Places[] placesGallery;
 
     public Opinion(String username, String description, float rate, String profilePicAddress) {
         this.username = username;
@@ -22,6 +23,14 @@ public class Opinion {
         this.profilePicAddress = profilePicAddress;
     }
 
+
+    public Places[] getPlacesGallery() {
+        return placesGallery;
+    }
+
+    public void setPlacesGallery(Places[] placesGallery) {
+        this.placesGallery = placesGallery;
+    }
 
     public String[] getGalleryUrls() {
         return galleryUrls;
