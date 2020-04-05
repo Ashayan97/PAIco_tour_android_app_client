@@ -36,5 +36,8 @@
     <string name="place_name">place name</string>
     <string name="place_info_form">Place name: %s \n\n Opening Hour: %s \n\n Administration: %s \n\n Administration Number: %s </string>
     <string name="some_where">some where</string>
+    <string name="get_ticket">Get Ticket</string>
+    <string name="live_info">Live info</string>
+    <string name="directions">Directions</string>
 
 </resources>
