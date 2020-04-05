@@ -36,6 +36,14 @@ public class OpinionDialogBox extends Dialog {
         getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.MATCH_PARENT);
         findView();
+        setView();
+    }
+
+    private void setView() {
+        description.setText(opinion.getDescription());
+        username.setText(opinion.getUsername());
+        ratingBar.setRating(opinion.getRate());
+        //TODO set places and set gallery
     }
 
     private void findView() {

@@ -19,6 +19,8 @@ public class OpinionGalleryCardViewHandler extends RecyclerView.Adapter<OpinionG
     public OpinionGalleryCardViewHandler(String[] galleryUrls, Places[] places) {
         this.galleryUrls = galleryUrls;
         this.places = places;
+        if (galleryUrls==null)
+            this.galleryUrls=new String[0];
     }
 
     @NonNull
