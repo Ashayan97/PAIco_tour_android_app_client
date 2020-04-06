@@ -5,7 +5,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/card_view_layout"
+        android:id="@+id/opinion_dialog_places_layout"
         android:orientation="vertical"
         android:clickable="true"
         android:focusable="true">
@@ -39,7 +39,7 @@
                 android:orientation="vertical"
                 >
             <RatingBar
-                android:id="@+id/opinion_ratingBar"
+                android:id="@+id/opinion_dialog_places_rating_bar"
                 style="?android:attr/ratingBarStyleSmall"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"

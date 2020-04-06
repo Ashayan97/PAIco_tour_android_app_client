@@ -11,7 +11,7 @@ import java.net.URL;
 public class ImageLoader {
     private static ImageLoader imageLoader;
 
-    public ImageLoader getInstance() {
+    public static ImageLoader getInstance() {
         if (imageLoader == null)
             imageLoader = new ImageLoader();
         return imageLoader;
