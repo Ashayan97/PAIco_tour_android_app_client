@@ -11,6 +11,9 @@ public class Places {
     private String description;
     private String videoUrl;
     private String profilePicUrl;
+    private String phoneNumber;
+    private String hourTime;
+    private String Administration;
 
     public float getRate() {
         return rate;
@@ -26,6 +29,30 @@ public class Places {
 
     public void setProfilePicUrl(String profilePicUrl) {
         this.profilePicUrl = profilePicUrl;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getHourTime() {
+        return hourTime;
+    }
+
+    public void setHourTime(String hourTime) {
+        this.hourTime = hourTime;
+    }
+
+    public String getAdministration() {
+        return Administration;
+    }
+
+    public void setAdministration(String administration) {
+        Administration = administration;
     }
 
     public double getLat() {

@@ -1,139 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="@dimen/small_margin"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/small_margin">
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_margin="@dimen/small_margin"
+        android:id="@+id/place_fragment_gallery"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_margin="@dimen/small_margin"
         android:layout_weight="1.5"
-        android:padding="@dimen/small_margin"
-        android:id="@+id/place_fragment_gallery"
         android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+        android:padding="@dimen/small_margin"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/description_background"
-        android:padding="@dimen/small_margin"
-        android:layout_weight="1.2"
-        android:orientation="horizontal"
         android:layout_marginLeft="@dimen/small_margin"
         android:layout_marginRight="@dimen/small_margin"
         android:layout_marginBottom="@dimen/small_margin"
-        >
+        android:layout_weight="1.2"
+        android:background="@drawable/description_background"
+        android:orientation="horizontal"
+        android:padding="@dimen/small_margin">
 
         <TextView
             android:layout_width="0dp"
-            android:background="@drawable/description_background"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text="@string/place_info_form"
+            android:id="@+id/place_fragment_info_form"
             android:layout_marginEnd="@dimen/small_margin"
-            />
+            android:layout_weight="2"
+            android:background="@drawable/description_background"
+            android:text="@string/place_info_form" />
 
 
         <VideoView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-        />
+            android:id="@+id/place_fragment_video_view"
+            android:layout_weight="1" />
 
 
     </LinearLayout>
 
 
-
     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
         android:orientation="vertical">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="@color/black"
-            android:layout_margin="@dimen/wall_distance"/>
+            android:layout_margin="@dimen/wall_distance"
+            android:background="@color/black" />
 
-            <ScrollView
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <LinearLayout
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/place_fragment_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/place_fragment_title"
-                        android:textColor="@color/black"
-                        android:textSize="30sp"
-                        android:gravity="center"
-                        android:text="@string/some_where"
-                        />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_margin="@dimen/small_margin"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/description_background"
-                        android:id="@+id/place_fragment_description"
-                        android:textColor="@color/black"
-                        />
+                    android:gravity="center"
+                    android:text="@string/some_where"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/place_fragment_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small_margin"
+                    android:background="@drawable/description_background"
+                    android:textColor="@color/black" />
+
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:padding="@dimen/small_margin"
-                        >
-                        <Button
-                            android:drawableStart="@drawable/ticket_icon"
-                            android:padding="@dimen/small_margin"
-                            android:background="@drawable/place_fragment_bottom"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:layout_margin="8dp"
-                            android:text="@string/get_ticket"
-                            style="?android:buttonBarButtonStyle"
-                            android:layout_height="match_parent"/>
-                        <Button
-                            android:padding="@dimen/small_margin"
-                            android:background="@drawable/place_fragment_bottom"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:text="@string/live_info"
-                            android:drawableStart="@drawable/live_info_icon"
-                            android:layout_margin="8dp"
-                            style="?android:buttonBarButtonStyle"
+                        android:padding="@dimen/small_margin">
 
-                            android:layout_height="match_parent"/>
                         <Button
+                            style="?android:buttonBarButtonStyle"
+                            android:id="@+id/place_fragment_ticket"
+                            android:layout_width="125dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="@drawable/place_fragment_bottom"
+                            android:drawableStart="@drawable/ticket_icon"
+                            android:gravity="center"
+                            android:padding="@dimen/small_margin"
+                            android:text="@string/get_ticket" />
+
+                        <Button
+                            style="?android:buttonBarButtonStyle"
+                            android:id="@+id/place_fragment_live_info"
+                            android:layout_width="125dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="@drawable/place_fragment_bottom"
+                            android:drawableStart="@drawable/live_info_icon"
+                            android:padding="@dimen/small_margin"
+
+                            android:text="@string/live_info" />
+
+                        <Button
+                            style="?android:buttonBarButtonStyle"
+                            android:id="@+id/place_fragment_direction"
+                            android:layout_width="125dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="@drawable/place_fragment_bottom"
                             android:drawableStart="@drawable/directions_icon"
                             android:padding="@dimen/small_margin"
-                            android:background="@drawable/place_fragment_bottom"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_margin="8dp"
-                            style="?android:buttonBarButtonStyle"
+                            android:text="@string/directions" />
 
+                        <Button
+                            style="?android:buttonBarButtonStyle"
+                            android:id="@+id/place_fragment_item_and_places"
+                            android:layout_width="125dp"
                             android:layout_height="match_parent"
-                            android:text="@string/directions"/>
+                            android:layout_margin="8dp"
+                            android:background="@drawable/place_fragment_bottom"
+                            android:drawableStart="@drawable/item_and_places_icon"
+                            android:padding="@dimen/small_margin"
+                            android:text="@string/item_and_places" />
+
 
                     </LinearLayout>
+                </HorizontalScrollView>
 
 
-
-                </LinearLayout>
-
+            </LinearLayout>
 
 
-
-            </ScrollView>
-        </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 
 </LinearLayout>

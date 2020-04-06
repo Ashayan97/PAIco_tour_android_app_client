@@ -39,5 +39,6 @@
     <string name="get_ticket">Get Ticket</string>
     <string name="live_info">Live info</string>
     <string name="directions">Directions</string>
+    <string name="item_and_places">Item and Places</string>
 
 </resources>
