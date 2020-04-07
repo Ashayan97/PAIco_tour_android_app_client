@@ -48,6 +48,10 @@ public class OpinionDialogBox extends Dialog {
         OpinionGalleryCardViewHandler galleryAdapter = new OpinionGalleryCardViewHandler(opinion.getGalleryUrls(), opinion.getPlacesGallery());
         gallery.setAdapter(galleryAdapter);
         gallery.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        OpinionListOfPlacesCardView opinionListOfPlacesCardView = new OpinionListOfPlacesCardView(getContext(), opinion.getPlaces());
+        places.setAdapter(opinionListOfPlacesCardView);
+        places.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
     private void findView() {

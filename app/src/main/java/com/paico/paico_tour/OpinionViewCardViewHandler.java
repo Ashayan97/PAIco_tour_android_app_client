@@ -35,7 +35,7 @@ public class OpinionViewCardViewHandler extends RecyclerView.Adapter<OpinionView
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.description.setText(opinions.get(position).getDescription());
-//        holder.profilePic.setImageBitmap(opinions.get(position).getProfilePic());
+        holder.profilePic.setImageBitmap(ImageLoader.getInstance().doInBackground(opinions.get(position).getProfilePicAddress()));
         holder.username.setText(opinions.get(position).getUsername());
         holder.ratingBar.setRating(opinions.get(position).getRate());
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {

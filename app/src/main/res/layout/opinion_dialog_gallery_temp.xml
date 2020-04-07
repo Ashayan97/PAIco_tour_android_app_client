@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="5"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -33,14 +34,18 @@
         </LinearLayout>
 
         <ImageView
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
             android:id="@+id/opinion_dialog_gallery_image_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="90"
             android:src="@mipmap/earth2" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="5"
             android:gravity="center"
             android:orientation="horizontal">
 

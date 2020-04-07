@@ -41,6 +41,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/place_fragment_video_view"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
             android:layout_weight="1" />
 
 

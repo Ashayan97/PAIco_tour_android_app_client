@@ -30,6 +30,8 @@
                     android:id="@+id/opinion_dialog_profile_pic"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true"
                     android:layout_weight="1"
                     android:src="@drawable/profile_icon" />
 

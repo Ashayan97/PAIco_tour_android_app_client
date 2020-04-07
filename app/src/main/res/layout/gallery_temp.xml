@@ -6,6 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:id="@+id/temp_gallery_image_view"/>
+        android:id="@+id/temp_gallery_image_view"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"/>
 
 </androidx.cardview.widget.CardView>

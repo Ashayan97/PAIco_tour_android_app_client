@@ -43,7 +43,7 @@ public class PlaceActivity extends AppCompatActivity {
     }
 
     private void setView() {
-//     TODO   videoView.setVideoPath(place.getVideoUrl());
+        videoView.setVideoPath(place.getVideoUrl());
         placeInfo.setText(getString(R.string.place_info_form,place.getName(),place.getHourTime(),place.getAdministration(),place.getPhoneNumber()));
         title.setText(place.getName());
         history.setText(place.getDescription());
