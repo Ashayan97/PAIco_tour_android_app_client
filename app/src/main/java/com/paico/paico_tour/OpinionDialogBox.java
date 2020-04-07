@@ -44,6 +44,10 @@ public class OpinionDialogBox extends Dialog {
         username.setText(opinion.getUsername());
         ratingBar.setRating(opinion.getRate());
         //TODO set places and set gallery
+
+        OpinionGalleryCardViewHandler galleryAdapter = new OpinionGalleryCardViewHandler(opinion.getGalleryUrls(), opinion.getPlacesGallery());
+        gallery.setAdapter(galleryAdapter);
+        gallery.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
     private void findView() {
@@ -52,12 +56,7 @@ public class OpinionDialogBox extends Dialog {
         profilePic = findViewById(R.id.opinion_dialog_profile_pic);
         ratingBar = findViewById(R.id.opinion_dialog_rating_bar);
         gallery = findViewById(R.id.opinion_dialog_gallery);
-        places = findViewById(R.id.opinion_dialog_list);
-
-        OpinionGalleryCardViewHandler galleryAdapter = new OpinionGalleryCardViewHandler(opinion.getGalleryUrls(), opinion.getPlacesGallery());
-        gallery.setAdapter(galleryAdapter);
-        gallery.setLayoutManager(new LinearLayoutManager(getContext()));
-
+        places = findViewById(R.id.opinion_dialog_list_of_place);
 
     }
 }

@@ -5,17 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class PlaceFragment extends Fragment {
+public class PlaceActivity extends AppCompatActivity {
 
     private Places place;
 
@@ -29,22 +29,17 @@ public class PlaceFragment extends Fragment {
     private Button liveInfo;
     private Button placesAndItem;
 
-    public PlaceFragment(Places place) {
+    public PlaceActivity(Places place) {
         this.place = place;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.place_fragment, container, false);
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        findView(view);
-        onClick();
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_place);
+        findView();
         setView();
+        onClick();
     }
 
     private void setView() {
@@ -54,7 +49,7 @@ public class PlaceFragment extends Fragment {
         history.setText(place.getDescription());
         PlaceFragmentGalleryCardViewHandler cardViewHandler=new PlaceFragmentGalleryCardViewHandler(place.getImgUrls());
         gallery.setAdapter(cardViewHandler);
-        gallery.setLayoutManager(new LinearLayoutManager(getContext()));
+        gallery.setLayoutManager(new LinearLayoutManager(this));
     }
 
     private void onClick() {
@@ -84,16 +79,16 @@ public class PlaceFragment extends Fragment {
         });
     }
 
-    private void findView(View view) {
-        gallery = view.findViewById(R.id.place_fragment_gallery);
-        videoView = view.findViewById(R.id.place_fragment_video_view);
-        placeInfo = view.findViewById(R.id.place_fragment_info_form);
-        history = view.findViewById(R.id.place_fragment_description);
-        title = view.findViewById(R.id.place_fragment_title);
-        ticket = view.findViewById(R.id.place_fragment_ticket);
-        direction = view.findViewById(R.id.place_fragment_direction);
-        liveInfo = view.findViewById(R.id.place_fragment_live_info);
-        placesAndItem = view.findViewById(R.id.place_fragment_item_and_places);
+    private void findView() {
+        gallery = findViewById(R.id.place_fragment_gallery);
+        videoView = findViewById(R.id.place_fragment_video_view);
+        placeInfo = findViewById(R.id.place_fragment_info_form);
+        history = findViewById(R.id.place_fragment_description);
+        title = findViewById(R.id.place_fragment_title);
+        ticket = findViewById(R.id.place_fragment_ticket);
+        direction = findViewById(R.id.place_fragment_direction);
+        liveInfo = findViewById(R.id.place_fragment_live_info);
+        placesAndItem = findViewById(R.id.place_fragment_item_and_places);
 
     }
 

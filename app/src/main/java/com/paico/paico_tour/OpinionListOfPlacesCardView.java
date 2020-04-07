@@ -1,6 +1,8 @@
 package com.paico.paico_tour;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 public class OpinionListOfPlacesCardView extends RecyclerView.Adapter<OpinionListOfPlacesCardView.ViewHolder> {
 
     private Places[] places;
+    private Context context;
 
     public OpinionListOfPlacesCardView(Context context,Places[] places) {
+        this.context=context;
         this.places = places;
         if (places==null)
             this.places=new Places[0];
@@ -30,7 +34,7 @@ public class OpinionListOfPlacesCardView extends RecyclerView.Adapter<OpinionLis
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.placeName.setText(places[position].getName());
         holder.description.setText(places[position].getDescription());
         holder.point.setText(String.valueOf(places[position].getRate()));
@@ -39,7 +43,8 @@ public class OpinionListOfPlacesCardView extends RecyclerView.Adapter<OpinionLis
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                PlaceActivity placeActivity =new PlaceActivity(places[position]);
+                context.startActivity(new Intent(context,placeActivity.getClass()));
             }
         });
 
