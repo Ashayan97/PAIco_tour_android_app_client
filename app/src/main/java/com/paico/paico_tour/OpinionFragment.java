@@ -62,18 +62,22 @@ public class OpinionFragment extends Fragment {
         Opinion fake=new Opinion("shayan","shiraz was wonder full and great and blah blah blah blah blah blah blah blah blah blah",4,"fake Address");
         fake.setGalleryUrls(imgUrl1);
         fake.setPlacesGallery(places);
+        fake.setPlaces(places);
         opinionList.add(fake);
         Opinion fake2=new Opinion("sshayan","shiraz was wonder full and great and blah blah blah blah blah blah blah blah blah blah",(float)4.5,"fake Address");
         fake2.setGalleryUrls(imgUrl1);
         fake2.setPlacesGallery(places);
+        fake2.setPlaces(places);
         opinionList.add(fake2);
         Opinion fake3=new Opinion("sshayan1997","shiraz was wonder full and great and blah blah blah blah blah blah blah blah blah blah",(float)3.25,"fake Address");
         fake3.setGalleryUrls(imgUrl1);
         fake3.setPlacesGallery(places);
+        fake3.setPlaces(places);
         opinionList.add(fake3);
         Opinion fake4=new Opinion("shayan97","shiraz was wonder full and great and blah blah blah blah blah blah blah blah blah blah",2,"fake Address");
         fake4.setGalleryUrls(imgUrl1);
         fake4.setPlacesGallery(places);
+        fake4.setPlaces(places);
         opinionList.add(fake4);
 
 

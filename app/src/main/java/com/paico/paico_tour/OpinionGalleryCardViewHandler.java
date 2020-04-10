@@ -35,7 +35,7 @@ public class OpinionGalleryCardViewHandler extends RecyclerView.Adapter<OpinionG
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.placeName.setText(places[position].getName());
-        ImageLoader.getInstance(holder.placeImage).doInBackground(galleryUrls[position]);
+        new ImageLoader(holder.placeImage).execute(galleryUrls[position]);
         holder.point.setText(String.valueOf(places[position].getRate()));
         holder.ratingBar.setRating(places[position].getRate());
     }

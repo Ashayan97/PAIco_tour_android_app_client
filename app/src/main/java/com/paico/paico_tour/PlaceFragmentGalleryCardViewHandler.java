@@ -27,7 +27,7 @@ public class PlaceFragmentGalleryCardViewHandler extends RecyclerView.Adapter<Pl
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.imageView.setImageBitmap(ImageLoader.getInstance().doInBackground(imgUrls[position]));
+        new ImageLoader(holder.imageView).execute(imgUrls[position]);
     }
 
     @Override

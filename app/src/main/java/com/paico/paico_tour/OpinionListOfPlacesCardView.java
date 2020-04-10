@@ -39,7 +39,7 @@ public class OpinionListOfPlacesCardView extends RecyclerView.Adapter<OpinionLis
         holder.description.setText(places[position].getDescription());
         holder.point.setText(String.valueOf(places[position].getRate()));
         holder.ratingBar.setRating(places[position].getRate());
-        holder.placeImage.setImageBitmap(ImageLoader.getInstance().doInBackground(places[position].getProfilePicUrl()));
+        new ImageLoader(holder.placeImage).execute(places[position].getProfilePicUrl());
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
