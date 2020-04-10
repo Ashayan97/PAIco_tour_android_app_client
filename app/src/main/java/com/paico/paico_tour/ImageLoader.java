@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.provider.ContactsContract;
+import android.widget.ImageView;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -23,6 +24,7 @@ public class ImageLoader extends AsyncTask<String, Void, Bitmap> {
 
     @Override
     protected Bitmap doInBackground(String... strings) {
+        ImageView view;
         Bitmap bmp = null;
         URL url = null;
         try {
