@@ -27,24 +27,31 @@
         android:orientation="horizontal"
         android:padding="@dimen/small_margin">
 
-        <TextView
+        <ScrollView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/place_fragment_info_form"
-            android:layout_marginEnd="@dimen/small_margin"
-            android:layout_weight="2"
             android:background="@drawable/description_background"
-            android:text="@string/place_info_form" />
+            android:layout_weight="1"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:padding="@dimen/small_margin"
+                    android:id="@+id/place_fragment_info_form"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/small_margin"
+                    android:text="@string/place_info_form" />
 
 
-        <VideoView
-            android:layout_width="0dp"
-            android:layout_gravity="center"
-            android:layout_height="match_parent"
-            android:id="@+id/place_fragment_video_view"
-            android:scaleType="centerInside"
-            android:adjustViewBounds="true"
-            android:layout_weight="1" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
 
 
     </LinearLayout>
@@ -65,7 +72,8 @@
         <ScrollView
             android:layout_width="match_parent"
             android:background="@drawable/description_background"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_weight="4">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -89,71 +97,85 @@
                     android:layout_margin="@dimen/small_margin"
                     android:textColor="@color/black" />
 
-                <HorizontalScrollView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="@dimen/small_margin">
-
-                        <Button
-                            style="?android:buttonBarButtonStyle"
-                            android:id="@+id/place_fragment_ticket"
-                            android:layout_width="125dp"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="@drawable/place_fragment_bottom"
-                            android:drawableStart="@drawable/ticket_icon"
-                            android:gravity="center"
-                            android:padding="@dimen/small_margin"
-                            android:text="@string/get_ticket" />
-
-                        <Button
-                            style="?android:buttonBarButtonStyle"
-                            android:id="@+id/place_fragment_live_info"
-                            android:layout_width="125dp"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="@drawable/place_fragment_bottom"
-                            android:drawableStart="@drawable/live_info_icon"
-                            android:padding="@dimen/small_margin"
-
-                            android:text="@string/live_info" />
-
-                        <Button
-                            style="?android:buttonBarButtonStyle"
-                            android:id="@+id/place_fragment_direction"
-                            android:layout_width="125dp"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="@drawable/place_fragment_bottom"
-                            android:drawableStart="@drawable/directions_icon"
-                            android:padding="@dimen/small_margin"
-                            android:text="@string/directions" />
-
-                        <Button
-                            style="?android:buttonBarButtonStyle"
-                            android:id="@+id/place_fragment_item_and_places"
-                            android:layout_width="125dp"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="@drawable/place_fragment_bottom"
-                            android:drawableStart="@drawable/item_and_places_icon"
-                            android:padding="@dimen/small_margin"
-                            android:text="@string/item_and_places" />
+                <VideoView
+                    android:background="@drawable/description_background"
+                    android:padding="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="120dp"
+                    android:layout_margin="@dimen/small_margin"
+                    android:id="@+id/place_fragment_video_view"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true" />
 
 
-                    </LinearLayout>
-                </HorizontalScrollView>
 
 
             </LinearLayout>
 
 
         </ScrollView>
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            android:layout_height="0dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/small_margin">
+
+                <Button
+                    style="?android:buttonBarButtonStyle"
+                    android:id="@+id/place_fragment_ticket"
+                    android:layout_width="125dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/place_fragment_bottom"
+                    android:drawableStart="@drawable/ticket_icon"
+                    android:gravity="center"
+                    android:padding="@dimen/small_margin"
+                    android:text="@string/get_ticket" />
+
+                <Button
+                    style="?android:buttonBarButtonStyle"
+                    android:id="@+id/place_fragment_live_info"
+                    android:layout_width="125dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/place_fragment_bottom"
+                    android:drawableStart="@drawable/live_info_icon"
+                    android:padding="@dimen/small_margin"
+
+                    android:text="@string/live_info" />
+
+                <Button
+                    style="?android:buttonBarButtonStyle"
+                    android:id="@+id/place_fragment_direction"
+                    android:layout_width="125dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/place_fragment_bottom"
+                    android:drawableStart="@drawable/directions_icon"
+                    android:padding="@dimen/small_margin"
+                    android:text="@string/directions" />
+
+                <Button
+                    style="?android:buttonBarButtonStyle"
+                    android:id="@+id/place_fragment_item_and_places"
+                    android:layout_width="125dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/place_fragment_bottom"
+                    android:drawableStart="@drawable/item_and_places_icon"
+                    android:padding="@dimen/small_margin"
+                    android:text="@string/item_and_places" />
+
+
+            </LinearLayout>
+        </HorizontalScrollView>
     </LinearLayout>
 
 </LinearLayout>

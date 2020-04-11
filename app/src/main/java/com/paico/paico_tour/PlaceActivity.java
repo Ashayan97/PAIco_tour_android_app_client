@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -45,6 +46,9 @@ public class PlaceActivity extends AppCompatActivity {
 
     private void setView() {
         videoView.setVideoPath(place.getVideoUrl());
+        MediaController mediaController = new MediaController(this);
+        mediaController.setAnchorView(videoView);
+        videoView.setMediaController(mediaController);
         videoView.start();
         placeInfo.setText(getString(R.string.place_info_form,place.getName(),place.getHourTime(),place.getAdministration(),place.getPhoneNumber()));
         title.setText(place.getName());
