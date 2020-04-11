@@ -37,8 +37,8 @@ public class PlaceActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place);
-        Gson gson=new Gson();
-        place=gson.fromJson(getIntent().getStringExtra("place"),Places.class);
+        Gson gson = new Gson();
+        place = gson.fromJson(getIntent().getStringExtra("place"), Places.class);
         findView();
         setView();
         onClick();
@@ -50,12 +50,13 @@ public class PlaceActivity extends AppCompatActivity {
         mediaController.setAnchorView(videoView);
         videoView.setMediaController(mediaController);
         videoView.start();
-        placeInfo.setText(getString(R.string.place_info_form,place.getName(),place.getHourTime(),place.getAdministration(),place.getPhoneNumber()));
+        placeInfo.setText(getString(R.string.place_info_form, place.getName(), place.getHourTime(), place.getAdministration(), place.getPhoneNumber()));
         title.setText(place.getName());
         history.setText(place.getDescription());
-        PlaceFragmentGalleryCardViewHandler cardViewHandler=new PlaceFragmentGalleryCardViewHandler(place.getImgUrls());
+        PlaceFragmentGalleryCardViewHandler cardViewHandler = new PlaceFragmentGalleryCardViewHandler(place.getImgUrls());
         gallery.setAdapter(cardViewHandler);
-        gallery.setLayoutManager(new LinearLayoutManager(this));
+        gallery.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,
+                false));
     }
 
     private void onClick() {
