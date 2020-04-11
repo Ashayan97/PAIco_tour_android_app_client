@@ -15,6 +15,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+
 public class PlaceActivity extends AppCompatActivity {
 
     private Places place;
@@ -29,14 +31,13 @@ public class PlaceActivity extends AppCompatActivity {
     private Button liveInfo;
     private Button placesAndItem;
 
-    public void setPlace(Places place) {
-        this.place = place;
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place);
+        Gson gson=new Gson();
+        place=gson.fromJson(getIntent().getStringExtra("place"),Places.class);
         findView();
         setView();
         onClick();
@@ -44,6 +45,7 @@ public class PlaceActivity extends AppCompatActivity {
 
     private void setView() {
         videoView.setVideoPath(place.getVideoUrl());
+        videoView.start();
         placeInfo.setText(getString(R.string.place_info_form,place.getName(),place.getHourTime(),place.getAdministration(),place.getPhoneNumber()));
         title.setText(place.getName());
         history.setText(place.getDescription());

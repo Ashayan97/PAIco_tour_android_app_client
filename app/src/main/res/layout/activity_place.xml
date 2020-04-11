@@ -39,6 +39,7 @@
 
         <VideoView
             android:layout_width="0dp"
+            android:layout_gravity="center"
             android:layout_height="match_parent"
             android:id="@+id/place_fragment_video_view"
             android:scaleType="centerInside"
@@ -63,6 +64,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
+            android:background="@drawable/description_background"
             android:layout_height="match_parent">
 
             <LinearLayout
@@ -83,8 +85,8 @@
                     android:id="@+id/place_fragment_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="20dp"
                     android:layout_margin="@dimen/small_margin"
-                    android:background="@drawable/description_background"
                     android:textColor="@color/black" />
 
                 <HorizontalScrollView

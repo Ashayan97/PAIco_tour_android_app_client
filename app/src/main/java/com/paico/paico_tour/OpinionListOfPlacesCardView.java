@@ -46,8 +46,9 @@ public class OpinionListOfPlacesCardView extends RecyclerView.Adapter<OpinionLis
             @Override
             public void onClick(View v) {
                 Gson gson=new Gson();
-                String placeClass=gson.toJson(places[position],Places.class);
+                String placeClass=gson.toJson(places[position]);
                 Intent intent=new Intent(context,PlaceActivity.class);
+                intent.putExtra("place",placeClass);
                 context.startActivity(intent);
             }
         });
