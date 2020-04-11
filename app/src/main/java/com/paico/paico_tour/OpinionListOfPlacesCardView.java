@@ -14,6 +14,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+
 public class OpinionListOfPlacesCardView extends RecyclerView.Adapter<OpinionListOfPlacesCardView.ViewHolder> {
 
     private Places[] places;
@@ -43,8 +45,10 @@ public class OpinionListOfPlacesCardView extends RecyclerView.Adapter<OpinionLis
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PlaceActivity placeActivity =new PlaceActivity(places[position]);
-                context.startActivity(new Intent(context,placeActivity.getClass()));
+                Gson gson=new Gson();
+                String placeClass=gson.toJson(places[position],Places.class);
+                Intent intent=new Intent(context,PlaceActivity.class);
+                context.startActivity(intent);
             }
         });
 

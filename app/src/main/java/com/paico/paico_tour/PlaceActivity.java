@@ -29,7 +29,7 @@ public class PlaceActivity extends AppCompatActivity {
     private Button liveInfo;
     private Button placesAndItem;
 
-    public PlaceActivity(Places place) {
+    public void setPlace(Places place) {
         this.place = place;
     }
 
