@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -41,7 +42,7 @@ public class OpinionListOfPlacesCardView extends RecyclerView.Adapter<OpinionLis
         holder.description.setText(places[position].getDescription());
         holder.point.setText(String.valueOf(places[position].getRate()));
         holder.ratingBar.setRating(places[position].getRate());
-        new ImageLoader(holder.placeImage).execute(places[position].getProfilePicUrl());
+        new ImageLoader(holder.placeImage,null).execute(places[position].getProfilePicUrl());
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

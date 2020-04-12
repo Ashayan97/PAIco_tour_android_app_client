@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.MediaController;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -31,6 +32,7 @@ public class PlaceActivity extends AppCompatActivity {
     private Button direction;
     private Button liveInfo;
     private Button placesAndItem;
+    private ScrollView scrollView;
 
 
     @Override
@@ -45,6 +47,7 @@ public class PlaceActivity extends AppCompatActivity {
     }
 
     private void setView() {
+        scrollView.smoothScrollTo(0,0);
         videoView.setVideoPath(place.getVideoUrl());
         MediaController mediaController = new MediaController(this);
         mediaController.setAnchorView(videoView);
@@ -96,6 +99,7 @@ public class PlaceActivity extends AppCompatActivity {
         direction = findViewById(R.id.place_fragment_direction);
         liveInfo = findViewById(R.id.place_fragment_live_info);
         placesAndItem = findViewById(R.id.place_fragment_item_and_places);
+        scrollView = findViewById(R.id.place_fragment_scroll_view);
 
     }
 

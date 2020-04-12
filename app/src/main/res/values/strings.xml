@@ -40,5 +40,6 @@
     <string name="live_info">Live info</string>
     <string name="directions">Directions</string>
     <string name="item_and_places">Item and Places</string>
+    <string name="get_point">get point</string>
 
 </resources>

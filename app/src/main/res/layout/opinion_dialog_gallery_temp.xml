@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -8,11 +9,11 @@
     <LinearLayout
 
         android:layout_width="match_parent"
-        android:padding="@dimen/small_margin"
         android:layout_height="match_parent"
         android:background="@drawable/description_background"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/small_margin">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,8 +26,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:scaleType="centerInside"
                 android:adjustViewBounds="true"
+                android:scaleType="centerInside"
                 android:src="@drawable/place_icon" />
 
             <TextView
@@ -38,15 +39,35 @@
                 android:text="@string/place_name" />
         </LinearLayout>
 
-        <ImageView
-            android:scaleType="centerInside"
-            android:adjustViewBounds="true"
-            android:id="@+id/opinion_dialog_gallery_image_view"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="80"
             android:layout_margin="@dimen/small_margin"
-            android:src="@mipmap/earth2" />
+            android:layout_weight="80">
+
+            <ImageView
+                android:id="@+id/opinion_dialog_gallery_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/opinion_dialog_gallery_progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -35,7 +36,7 @@ public class OpinionGalleryCardViewHandler extends RecyclerView.Adapter<OpinionG
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.placeName.setText(places[position].getName());
-        new ImageLoader(holder.placeImage).execute(galleryUrls[position]);
+        new ImageLoader(holder.placeImage,holder.progressBar).execute(galleryUrls[position]);
         holder.point.setText(String.valueOf(places[position].getRate()));
         holder.ratingBar.setRating(places[position].getRate());
     }
@@ -50,9 +51,11 @@ public class OpinionGalleryCardViewHandler extends RecyclerView.Adapter<OpinionG
         public TextView point;
         public ImageView placeImage;
         public RatingBar ratingBar;
+        public ProgressBar progressBar;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            progressBar = itemView.findViewById(R.id.opinion_dialog_gallery_progress_bar);
             placeName = itemView.findViewById(R.id.opinion_dialog_gallery_place_name);
             point = itemView.findViewById(R.id.opinion_dialog_gallery_rate_num);
             placeImage = itemView.findViewById(R.id.opinion_dialog_gallery_image_view);

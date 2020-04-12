@@ -4,6 +4,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,7 +29,8 @@ public class PlaceFragmentGalleryCardViewHandler extends RecyclerView.Adapter<Pl
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        new ImageLoader(holder.imageView).execute(imgUrls[position]);
+        new ImageLoader(holder.imageView, holder.progressBar).execute(imgUrls[position]);
+        holder.textView.setText(String.valueOf(position + 1));
     }
 
     @Override
@@ -38,10 +41,14 @@ public class PlaceFragmentGalleryCardViewHandler extends RecyclerView.Adapter<Pl
     class ViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView imageView;
+        public TextView textView;
+        public ProgressBar progressBar;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.temp_gallery_image_view);
+            textView = itemView.findViewById(R.id.temp_gallery_text_view_position);
+            progressBar = itemView.findViewById(R.id.temp_gallery_progress_bar);
         }
     }
 }
