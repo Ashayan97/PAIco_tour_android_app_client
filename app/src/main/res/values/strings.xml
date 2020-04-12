@@ -45,5 +45,6 @@
     <string name="required">(required)</string>
     <string name="place_you_suggest">Place you suggest:</string>
     <string name="please_add_photo_of_places_you_saw">Please add photo of places you saw:</string>
+    <string name="please_enter_your_idea_about_the_city">Please Enter your idea about the city...</string>
 
 </resources>
