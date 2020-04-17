@@ -12,12 +12,15 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 public class OpinionFragment extends Fragment {
     private RecyclerView opinionListView;
+    private FloatingActionButton addOpinionFloatingActionButton;
 
     @Nullable
     @Override
@@ -28,7 +31,23 @@ public class OpinionFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        findView(view);
+        onClick();
         configureRecyclerView(view);
+    }
+
+    private void onClick() {
+        addOpinionFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OpinionDialogGetOpinionBox opinionDialogGetOpinionBox=new OpinionDialogGetOpinionBox(getContext());
+                opinionDialogGetOpinionBox.show();
+            }
+        });
+    }
+
+    private void findView(View view) {
+        addOpinionFloatingActionButton =view.findViewById(R.id.opinion_add_new_opinion);
     }
 
 
