@@ -23,7 +23,7 @@ public class PlaceFragmentGalleryCardViewHandler extends RecyclerView.Adapter<Pl
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gallery_temp, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.temp_gallery, parent, false);
         return new PlaceFragmentGalleryCardViewHandler.ViewHolder(view);
     }
 

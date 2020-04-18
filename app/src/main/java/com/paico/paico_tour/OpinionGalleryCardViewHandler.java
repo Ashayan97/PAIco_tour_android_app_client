@@ -4,7 +4,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -28,7 +27,7 @@ public class OpinionGalleryCardViewHandler extends RecyclerView.Adapter<OpinionG
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.opinion_dialog_gallery_temp, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.temp_opinion_dialog_gallery, parent, false);
         return new OpinionGalleryCardViewHandler.ViewHolder(view);
 
     }
