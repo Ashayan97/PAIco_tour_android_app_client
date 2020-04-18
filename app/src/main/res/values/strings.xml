@@ -48,5 +48,7 @@
     <string name="please_enter_your_idea_about_the_city">Please Enter your idea about the city...</string>
     <string name="date">Date:</string>
     <string name="amount">Amount:</string>
+    <string name="id">ID:</string>
+    <string name="title">Title</string>
 
 </resources>
