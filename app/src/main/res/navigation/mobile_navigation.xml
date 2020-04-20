@@ -15,4 +15,9 @@
         android:name="com.paico.paico_tour.OpinionFragment"
         android:label="@string/suggestions"
         tools:layout="@layout/opinion_about_city" />
+    <fragment
+        android:id="@+id/nav_transactions"
+        android:name="com.paico.paico_tour.TransactionFragment"
+        android:label="@string/transactions"
+        tools:layout="@layout/transaction_fragment" />
 </navigation>
