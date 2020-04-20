@@ -2,13 +2,14 @@ package com.paico.paico_tour;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
 
 import androidx.annotation.NonNull;
+
+import com.paico.paico_tour.intefaces.PointHandler;
 
 public class GetPointDialogBox extends Dialog {
     private PointHandler pointHandler;

@@ -1,4 +1,4 @@
-package com.paico.paico_tour;
+package com.paico.paico_tour.dialogBoxs;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -14,7 +14,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.Collections;
+import com.paico.paico_tour.R;
+import com.paico.paico_tour.intefaces.PointHandler;
+import com.paico.paico_tour.objects.Opinion;
+import com.paico.paico_tour.viewHandlers.OpinionGalleryCardViewHandler;
+import com.paico.paico_tour.viewHandlers.OpinionListOfPlacesCardView;
 
 public class OpinionDialogBox extends Dialog {
     private Opinion opinion;

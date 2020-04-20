@@ -3,11 +3,11 @@ package com.paico.paico_tour;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
+import com.paico.paico_tour.intefaces.Finisher;
 
 public class MainActivity extends AppCompatActivity {
     private SignInUpPageTabAdapter signInUpPageTabAdapter;

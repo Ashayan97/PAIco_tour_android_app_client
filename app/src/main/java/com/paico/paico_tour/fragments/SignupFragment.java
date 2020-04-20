@@ -1,7 +1,6 @@
 package com.paico.paico_tour;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.paico.paico_tour.intefaces.Finisher;
 
 public class SignupFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.paico.paico_tour;
+package com.paico.paico_tour.dialogBoxs;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -11,10 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
+import com.paico.paico_tour.MapsActivity;
+import com.paico.paico_tour.R;
+import com.paico.paico_tour.intefaces.Finisher;
 
 public class ConfrmationCodeDialogBox extends Dialog {
     private CountDownTimer countDownTimer;

@@ -12,7 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.lang.reflect.Array;
+import com.paico.paico_tour.objects.Opinion;
+
 import java.util.ArrayList;
 
 public class OpinionViewCardViewHandler extends RecyclerView.Adapter<OpinionViewCardViewHandler.ViewHolder> {
