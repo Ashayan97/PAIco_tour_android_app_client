@@ -1,4 +1,4 @@
-package com.paico.paico_tour.intefaces;
+package com.paico.paico_tour;
 
 import android.app.Activity;
 

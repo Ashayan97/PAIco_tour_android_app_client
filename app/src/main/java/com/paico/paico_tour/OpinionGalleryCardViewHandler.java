@@ -1,4 +1,4 @@
-package com.paico.paico_tour.viewHandlers;
+package com.paico.paico_tour;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.paico.paico_tour.ImageLoader;
-import com.paico.paico_tour.R;
 import com.paico.paico_tour.objects.Places;
 
 public class OpinionGalleryCardViewHandler extends RecyclerView.Adapter<OpinionGalleryCardViewHandler.ViewHolder> {

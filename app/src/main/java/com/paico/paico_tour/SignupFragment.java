@@ -12,8 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.paico.paico_tour.intefaces.Finisher;
-
 public class SignupFragment extends Fragment {
 
     private EditText firstName;

@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
-import com.paico.paico_tour.intefaces.Finisher;
 
 public class MainActivity extends AppCompatActivity {
     private SignInUpPageTabAdapter signInUpPageTabAdapter;
