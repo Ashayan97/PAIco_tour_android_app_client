@@ -11,7 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.paico.paico_tour.objects.Places;
 
 public class OpinionGalleryCardViewHandler extends RecyclerView.Adapter<OpinionGalleryCardViewHandler.ViewHolder> {
     private String[] galleryUrls;

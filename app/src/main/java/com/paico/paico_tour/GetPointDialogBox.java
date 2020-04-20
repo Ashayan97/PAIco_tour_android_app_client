@@ -9,7 +9,7 @@ import android.widget.RatingBar;
 
 import androidx.annotation.NonNull;
 
-import com.paico.paico_tour.intefaces.PointHandler;
+
 
 public class GetPointDialogBox extends Dialog {
     private PointHandler pointHandler;

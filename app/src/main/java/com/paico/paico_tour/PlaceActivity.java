@@ -14,8 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
-import com.paico.paico_tour.objects.Places;
-import com.paico.paico_tour.viewHandlers.PlaceFragmentGalleryCardViewHandler;
 
 public class PlaceActivity extends AppCompatActivity {
 

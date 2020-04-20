@@ -50,5 +50,6 @@
     <string name="amount">Amount:</string>
     <string name="id">ID:</string>
     <string name="title">Title</string>
+    <string name="transactions">Transactions</string>
 
 </resources>
