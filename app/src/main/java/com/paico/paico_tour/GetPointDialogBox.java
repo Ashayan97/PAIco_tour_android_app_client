@@ -25,6 +25,7 @@ public class GetPointDialogBox extends Dialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setBackgroundDrawableResource(R.drawable.window_dialog_background);
         setContentView(R.layout.get_point_dialog_box);
         findView();
         onClick();
