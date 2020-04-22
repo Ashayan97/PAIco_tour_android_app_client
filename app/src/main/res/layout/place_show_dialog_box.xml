@@ -6,7 +6,7 @@
     android:layout_gravity="center"
     android:background="@drawable/dialog_background"
     android:orientation="vertical"
-    android:padding="30dp">
+    android:padding="40dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -35,28 +35,30 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
-            android:layout_marginLeft="@dimen/small_margin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/small_margin"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_marginBottom="@dimen/small_margin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/small_margin"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/place_icon"/>
+                    android:src="@drawable/place_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/small_margin"
                     android:text="atash kadeh"
                     android:textColor="@color/black" />
             </LinearLayout>
+
             <LinearLayout
 
                 android:layout_width="wrap_content"
@@ -66,32 +68,71 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/phone_icon"/>
+                    android:src="@drawable/phone_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/small_margin"
                     android:text="+989178556367"
                     android:textColor="@color/black" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout
 
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/phone_icon"/>
+            android:src="@drawable/address_icon" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="+989178556367"
+            android:layout_marginLeft="@dimen/small_margin"
+            android:text="yazd, old st,some where nice"
             android:textColor="@color/black" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <RatingBar
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:numStars="5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:background="@drawable/place_fragment_bottom"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                style="?android:buttonBarButtonStyle"
+                android:src="@drawable/open_icon"
+                />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
