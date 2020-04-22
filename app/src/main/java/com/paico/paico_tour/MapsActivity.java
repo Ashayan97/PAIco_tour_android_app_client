@@ -106,7 +106,6 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
     }
 
     private void findCurrentLocation() {
-//        if (havePerm == 1) {
         fusedLocationClient.getLastLocation()
                 .addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
                     @Override
@@ -125,10 +124,6 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
                         }
                     }
                 });
-//        } else {
-//            LatLng dolatAbadGarden = new LatLng(31.901864, 54.353187);
-//            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(dolatAbadGarden, 18));
-//        }
     }
 
 
