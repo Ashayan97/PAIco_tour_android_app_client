@@ -39,6 +39,7 @@ import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Arrays;
 
@@ -49,8 +50,10 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
     private static final int MY_PERMISSIONS_REQUEST_FIND_LOCATION = 110;
     private GoogleMap mMap;
     private FusedLocationProviderClient fusedLocationClient;
-    private static int havePerm;
-
+    private FloatingActionButton menu;
+    private FloatingActionButton pay;
+    private FloatingActionButton charge;
+    private FloatingActionButton currentLocation;
 
     @Nullable
     @Override
@@ -63,13 +66,49 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        findView(view);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(getContext());
+        onClick();
         locationPerm();
         SupportMapFragment mapFragment = (SupportMapFragment) FragmentManager.findFragment(view.findViewById(R.id.map));
         mapFragment.getMapAsync(this);
+
         markPlaces();
         initializeMapAutocomplete(view);
+    }
+
+    private void onClick() {
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO
+            }
+        });
+        pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO
+            }
+        });
+        charge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO
+            }
+        });
+        currentLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findCurrentLocation();
+            }
+        });
+    }
+
+    private void findView(View view) {
+        menu= view.findViewById(R.id.activity_maps_menu_floating_button);
+        pay = view.findViewById(R.id.activity_maps_pay_floating_button);
+        charge = view.findViewById(R.id.activity_maps_charge_floating_button);
+        currentLocation = view.findViewById(R.id.activity_maps_location_floating_button);
     }
 
     private void markPlaces() {
@@ -126,18 +165,6 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
                 });
     }
 
-
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
-
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -183,10 +210,8 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    havePerm = 1;
                     findCurrentLocation();
                 } else {
-                    havePerm = -1;
                     findCurrentLocation();
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
@@ -195,6 +220,22 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
             }
         }
     }
+
+
+
+
+
+
+
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     * This is where we can add markers or lines, add listeners or move the camera. In this case,
+     * we just add a marker near Sydney, Australia.
+     * If Google Play services is not installed on the device, the user will be prompted to install
+     * it inside the SupportMapFragment. This method will only be triggered once the user has
+     * installed Google Play services and returned to the app.
+     */
 
 
 }
