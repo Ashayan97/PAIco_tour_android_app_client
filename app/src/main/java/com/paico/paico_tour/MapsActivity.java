@@ -89,21 +89,21 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
                             "Alpha",
                             0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1f
                     );
-                    transChanger.setDuration(250);
+                    transChanger.setDuration(500);
                     transChanger.start();
                     transChanger = ObjectAnimator.ofFloat(
                             charge,
                             "Alpha",
                             0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1f
                     );
-                    transChanger.setDuration(250);
+                    transChanger.setDuration(500);
                     transChanger.start();
                     transChanger = ObjectAnimator.ofFloat(
                             currentLocation,
                             "Alpha",
                             0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1f
                     );
-                    transChanger.setDuration(250);
+                    transChanger.setDuration(500);
                     transChanger.start();
                     pay.setVisibility(View.VISIBLE);
                     charge.setVisibility(View.VISIBLE);
@@ -119,21 +119,21 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
                             "Alpha",
                             1f, 0.9f, 0.8f, 0.7f, 0.6f, 0.5f, 0.4f, 0.3f, 0.2f, 0.1f, 0
                     );
-                    transChanger.setDuration(250);
+                    transChanger.setDuration(500);
                     transChanger.start();
                     transChanger = ObjectAnimator.ofFloat(
                             charge,
                             "Alpha",
                             1f, 0.9f, 0.8f, 0.7f, 0.6f, 0.5f, 0.4f, 0.3f, 0.2f, 0.1f, 0
                     );
-                    transChanger.setDuration(250);
+                    transChanger.setDuration(500);
                     transChanger.start();
                     transChanger = ObjectAnimator.ofFloat(
                             currentLocation,
                             "Alpha",
                             1f, 0.9f, 0.8f, 0.7f, 0.6f, 0.5f, 0.4f, 0.3f, 0.2f, 0.1f, 0
                     );
-                    transChanger.setDuration(250);
+                    transChanger.setDuration(500);
                     transChanger.start();
                     pay.setVisibility(View.INVISIBLE);
                     charge.setVisibility(View.INVISIBLE);
@@ -141,7 +141,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
                     pay.setClickable(false);
                     charge.setClickable(false);
                     currentLocation.setClickable(false);
-
+                    butShow=false;
 
                 }
             }
