@@ -70,13 +70,14 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         super.onViewCreated(view, savedInstanceState);
         findView(view);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(getContext());
+        initializeMapAutocomplete(view);
         onClick();
         locationPerm();
         SupportMapFragment mapFragment = (SupportMapFragment) FragmentManager.findFragment(view.findViewById(R.id.map));
         mapFragment.getMapAsync(this);
 
         markPlaces();
-        initializeMapAutocomplete(view);
+
     }
 
     private void onClick() {
@@ -111,7 +112,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
                     pay.setClickable(true);
                     charge.setClickable(true);
                     currentLocation.setClickable(true);
-                    butShow=true;
+                    butShow = true;
 
                 } else {
                     ObjectAnimator transChanger = ObjectAnimator.ofFloat(
@@ -141,7 +142,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
                     pay.setClickable(false);
                     charge.setClickable(false);
                     currentLocation.setClickable(false);
-                    butShow=false;
+                    butShow = false;
 
                 }
             }
@@ -178,7 +179,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
     }
 
     private void initializeMapAutocomplete(View view) {
-        Places.initialize(getContext(), "AIzaSyClf_TDlpG3cE3lxi8CEmOHxFAVHxVI0go");
+        Places.initialize(view.getContext(), "AIzaSyClf_TDlpG3cE3lxi8CEmOHxFAVHxVI0go");
         // Initialize the AutocompleteSupportFragment.
         AutocompleteSupportFragment autocompleteFragment = (AutocompleteSupportFragment)
                 FragmentManager.findFragment(view.findViewById(R.id.autocomplete_fragment));
@@ -191,10 +192,12 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
-                // TODO: Get info about the selected place.
-                Log.i("TAG", "Place: " + place.getName() + ", " + place.getId());
-                LatLng currentLocation = new LatLng(place.getLatLng().latitude, place.getLatLng().longitude);
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 18));
+                if (place != null) {
+                    // TODO: Get info about the selected place.
+                    Log.i("TAG", "Place: " + place.getName() + ", " + place.getId());
+//                LatLng currentLocation = new LatLng(place.getLatLng().latitude, place.getLatLng().longitude);
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(place.getLatLng(), 18));
+                }
 
             }
 
