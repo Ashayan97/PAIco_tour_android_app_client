@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.Manifest;
+import android.animation.ObjectAnimator;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -54,6 +55,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
     private FloatingActionButton pay;
     private FloatingActionButton charge;
     private FloatingActionButton currentLocation;
+    private boolean butShow = false;
 
     @Nullable
     @Override
@@ -81,7 +83,67 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO
+                if (!butShow) {
+                    ObjectAnimator transChanger = ObjectAnimator.ofFloat(
+                            pay,
+                            "Alpha",
+                            0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1f
+                    );
+                    transChanger.setDuration(250);
+                    transChanger.start();
+                    transChanger = ObjectAnimator.ofFloat(
+                            charge,
+                            "Alpha",
+                            0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1f
+                    );
+                    transChanger.setDuration(250);
+                    transChanger.start();
+                    transChanger = ObjectAnimator.ofFloat(
+                            currentLocation,
+                            "Alpha",
+                            0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1f
+                    );
+                    transChanger.setDuration(250);
+                    transChanger.start();
+                    pay.setVisibility(View.VISIBLE);
+                    charge.setVisibility(View.VISIBLE);
+                    currentLocation.setVisibility(View.VISIBLE);
+                    pay.setClickable(true);
+                    charge.setClickable(true);
+                    currentLocation.setClickable(true);
+                    butShow=true;
+
+                } else {
+                    ObjectAnimator transChanger = ObjectAnimator.ofFloat(
+                            pay,
+                            "Alpha",
+                            1f, 0.9f, 0.8f, 0.7f, 0.6f, 0.5f, 0.4f, 0.3f, 0.2f, 0.1f, 0
+                    );
+                    transChanger.setDuration(250);
+                    transChanger.start();
+                    transChanger = ObjectAnimator.ofFloat(
+                            charge,
+                            "Alpha",
+                            1f, 0.9f, 0.8f, 0.7f, 0.6f, 0.5f, 0.4f, 0.3f, 0.2f, 0.1f, 0
+                    );
+                    transChanger.setDuration(250);
+                    transChanger.start();
+                    transChanger = ObjectAnimator.ofFloat(
+                            currentLocation,
+                            "Alpha",
+                            1f, 0.9f, 0.8f, 0.7f, 0.6f, 0.5f, 0.4f, 0.3f, 0.2f, 0.1f, 0
+                    );
+                    transChanger.setDuration(250);
+                    transChanger.start();
+                    pay.setVisibility(View.INVISIBLE);
+                    charge.setVisibility(View.INVISIBLE);
+                    currentLocation.setVisibility(View.INVISIBLE);
+                    pay.setClickable(false);
+                    charge.setClickable(false);
+                    currentLocation.setClickable(false);
+
+
+                }
             }
         });
         pay.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +167,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
     }
 
     private void findView(View view) {
-        menu= view.findViewById(R.id.activity_maps_menu_floating_button);
+        menu = view.findViewById(R.id.activity_maps_menu_floating_button);
         pay = view.findViewById(R.id.activity_maps_pay_floating_button);
         charge = view.findViewById(R.id.activity_maps_charge_floating_button);
         currentLocation = view.findViewById(R.id.activity_maps_location_floating_button);
@@ -220,11 +282,6 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
             }
         }
     }
-
-
-
-
-
 
 
     /**
