@@ -14,6 +14,15 @@ public class Places {
     private String phoneNumber;
     private String hourTime;
     private String Administration;
+    private String Address;
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
+    }
 
     public float getRate() {
         return rate;

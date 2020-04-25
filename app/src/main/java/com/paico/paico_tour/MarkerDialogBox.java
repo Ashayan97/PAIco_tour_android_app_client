@@ -2,13 +2,17 @@ package com.paico.paico_tour;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
+import com.google.gson.Gson;
 
 import java.security.PrivateKey;
 
@@ -38,7 +42,20 @@ public class MarkerDialogBox extends Dialog {
     }
 
     private void setView() {
-
+        name.setText(places.getName());
+        address.setText(places.getAddress());
+        phone.setText(places.getPhoneNumber());
+        new ImageLoader(imageView,progressBar).execute(places.getProfilePicUrl());
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Gson gson=new Gson();
+                String placeClass=gson.toJson(places);
+                Intent intent=new Intent(getContext(),PlaceActivity.class);
+                intent.putExtra("place",placeClass);
+                getContext().startActivity(intent);
+            }
+        });
     }
 
     private void findView() {
