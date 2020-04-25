@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ public class MarkerDialogBox extends Dialog {
     private Places places;
     private ImageView imageView;
     private ImageButton imageButton;
+    private RatingBar ratingBar;
     private TextView name;
     private TextView address;
     private TextView phone;
@@ -29,13 +31,14 @@ public class MarkerDialogBox extends Dialog {
     public MarkerDialogBox(@NonNull Context context,Places places) {
         super(context);
         this.places=places;
+
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.place_show_dialog_box);
-
+        getWindow().setBackgroundDrawableResource(R.drawable.window_dialog_background);
         findView();
         setView();
 
@@ -46,6 +49,7 @@ public class MarkerDialogBox extends Dialog {
         address.setText(places.getAddress());
         phone.setText(places.getPhoneNumber());
         new ImageLoader(imageView,progressBar).execute(places.getProfilePicUrl());
+        ratingBar.setRating(places.getRate());
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,5 +69,6 @@ public class MarkerDialogBox extends Dialog {
         address = findViewById(R.id.place_show_dialog_box_address);
         phone = findViewById(R.id.place_show_dialog_box_phone);
         progressBar = findViewById(R.id.place_show_dialog_box_progress_bar);
+        ratingBar = findViewById(R.id.place_show_dialog_box_rate);
     }
 }
