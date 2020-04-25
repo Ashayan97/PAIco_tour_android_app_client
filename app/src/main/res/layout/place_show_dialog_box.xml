@@ -18,6 +18,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/place_show_dialog_box_image_view"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -26,6 +27,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ProgressBar
+                android:id="@+id/place_show_dialog_box_progress_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -52,6 +54,7 @@
                     android:src="@drawable/place_icon" />
 
                 <TextView
+                    android:id="@+id/place_show_dialog_box_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/small_margin"
@@ -71,6 +74,7 @@
                     android:src="@drawable/phone_icon" />
 
                 <TextView
+                    android:id="@+id/place_show_dialog_box_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/small_margin"
@@ -92,6 +96,7 @@
             android:src="@drawable/address_icon" />
 
         <TextView
+            android:id="@+id/place_show_dialog_box_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/small_margin"
@@ -112,6 +117,7 @@
             android:orientation="horizontal">
 
             <RatingBar
+                android:id="@+id/place_show_dialog_box_rate"
                 style="?android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -127,6 +133,7 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/place_show_dialog_box_show_btn"
                 android:background="@drawable/place_fragment_bottom"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
