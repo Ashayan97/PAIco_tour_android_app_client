@@ -77,8 +77,6 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) FragmentManager.findFragment(view.findViewById(R.id.map));
         mapFragment.getMapAsync(this);
 
-        markPlaces();
-
     }
 
     private void onClick() {
@@ -178,8 +176,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
     private void markPlaces() {
         //TODO
         LatLng atashkade = new LatLng(31.8812, 54.3733);
-        Marker marker = mMap.addMarker(new MarkerOptions().position(atashkade).title("Yazd Atashkadeh"));
-
+        Marker marker = this.mMap.addMarker(new MarkerOptions().position(atashkade).title("Yazd Atashkadeh"));
         com.paico.paico_tour.Places places1 = new com.paico.paico_tour.Places();
         String[] img = new String[2];
         img[0] = "https://upload.wikimedia.org/wikipedia/commons/8/8d/Atashkadeh.jpg";
@@ -190,6 +187,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         places1.setDescription("The Fire Temple of Yazd (آتشکده یزد), also known as Yazd Atash Behram (Persian: یزد آتش بهرام), is a Zoroastrian fire temple in Yazd, Yazd province, Iran. It enshrines the Atash Bahram, meaning “Victorious Fire”, dated to 470 AD. It is one of the nine Atash Bahrams, the only one of the highest grade fire in ancient Iran where Zoroastrians have practiced their religion since 400 BC; the other eight Atash Bahrams are in India.[1][2] According to Aga Rustam Noshiravan Belivani, of Sharifabad, the Anjuman-i Nasiri (elected Zoroastrian officials) opened the Yazd Atash Behram in the 1960s to non-Zoroastrian visitors.\n" +
                 "\n" +
                 "Seeing a few children, firebox in their hand, and their occasional naughtiness but with caution not to fall into the ground was a common sight in ancient Iran. The children who like fire were the heat and kindness of every family. At that time, there was no match or other instrument to make fire. Thus, in one place, a fire was always on so that the people can take an amount of fire daily to turn on the firebox of their house. “Kadeh” in Dari Persian language means house, and “Atashkadeh” means the house of fire.");
+        places1.setAddress("yazd some where you can not find it easily :)");
         places1.setVideoUrl("https://as4.cdn.asset.aparat.com/aparat-video/91966e6387c6859d06e57c2e4a2a858620887300-240p.mp4");
         places1.setProfilePicUrl("https://upload.wikimedia.org/wikipedia/commons/8/8d/Atashkadeh.jpg");
         places1.setHourTime("3pm_2am");
@@ -257,9 +255,16 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
+                if (marker.getTag() != null) {
+                    com.paico.paico_tour.Places places = (com.paico.paico_tour.Places) marker.getTag();
+                    MarkerDialogBox markerDialogBox = new MarkerDialogBox(getContext(), places);
+                    markerDialogBox.show();
+                }
+
                 return false;
             }
         });
+        markPlaces();
         // Add a marker in Sydney and move the camera
     }
 
