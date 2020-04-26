@@ -56,6 +56,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
     private FloatingActionButton pay;
     private FloatingActionButton charge;
     private FloatingActionButton currentLocation;
+    private View view;
     private boolean butShow = false;
 
     @Nullable
@@ -71,7 +72,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         super.onViewCreated(view, savedInstanceState);
         findView(view);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(getContext());
-        initializeMapAutocomplete(view);
+        this.view=view;
         onClick();
         locationPerm();
         SupportMapFragment mapFragment = (SupportMapFragment) FragmentManager.findFragment(view.findViewById(R.id.map));
@@ -197,7 +198,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         marker.setTag(places1);
     }
 
-    private void initializeMapAutocomplete(View view) {
+    private void initializeMapAutocomplete() {
         Places.initialize(view.getContext(), "AIzaSyClf_TDlpG3cE3lxi8CEmOHxFAVHxVI0go");
         // Initialize the AutocompleteSupportFragment.
         AutocompleteSupportFragment autocompleteFragment = (AutocompleteSupportFragment)
@@ -265,6 +266,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
             }
         });
         markPlaces();
+        initializeMapAutocomplete();
         // Add a marker in Sydney and move the camera
     }
 
