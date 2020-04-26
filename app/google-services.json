@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "633610150942",
+    "firebase_url": "https://picon-tour.firebaseio.com",
+    "project_id": "picon-tour",
+    "storage_bucket": "picon-tour.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633610150942:android:3bba2d6424b9ce52653a0f",
+        "android_client_info": {
+          "package_name": "com.paico.paico_tour"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "633610150942-m8i32pp816pea0jpcmq1np5garegjq5p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.paico.paico_tour",
+            "certificate_hash": "00235343129ddd974daeb1ac826de5a636b33ed7"
+          }
+        },
+        {
+          "client_id": "633610150942-sc916e8vg6u8mgb2b2guc07mqqhnk6nc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcUSpNzJ6t1JG2sSLo6C4GClkJOHA2hrI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "633610150942-sc916e8vg6u8mgb2b2guc07mqqhnk6nc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

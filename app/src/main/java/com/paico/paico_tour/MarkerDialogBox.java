@@ -15,8 +15,6 @@ import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
 
-import java.security.PrivateKey;
-
 public class MarkerDialogBox extends Dialog {
     private Places places;
     private ImageView imageView;
