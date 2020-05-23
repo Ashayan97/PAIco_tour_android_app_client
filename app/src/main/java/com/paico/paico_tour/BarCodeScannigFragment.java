@@ -9,4 +9,5 @@ public class BarCodeScannigFragment {
                     .setBarcodeFormats(
                             FirebaseVisionBarcode.FORMAT_QR_CODE)
                     .build();
+
 }
