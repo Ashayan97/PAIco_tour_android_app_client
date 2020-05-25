@@ -12,6 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.vision.Detector;
+import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode;
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetector;
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetectorOptions;
 import com.google.firebase.ml.vision.common.FirebaseVisionImage;
@@ -25,6 +29,8 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import com.otaliastudios.cameraview.CameraView;
 import com.otaliastudios.cameraview.frame.Frame;
 import com.otaliastudios.cameraview.frame.FrameProcessor;
+
+import java.util.List;
 
 public class BarcodeReaderFragment extends AppCompatActivity {
     private CameraView cameraView;
@@ -81,6 +87,39 @@ public class BarcodeReaderFragment extends AppCompatActivity {
     }
 
     private void processImage(FirebaseVisionImage image) {
+        if (!isDetected){
+            detector.detectInImage(image).addOnSuccessListener(new OnSuccessListener<List<FirebaseVisionBarcode>>() {
+                @Override
+                public void onSuccess(List<FirebaseVisionBarcode> firebaseVisionBarcodes) {
+                    processResult(firebaseVisionBarcodes);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(BarcodeReaderFragment.this,""+e.getMessage(),Toast.LENGTH_LONG);
+                }
+            });
+
+
+        }
+
+    }
+
+    private void processResult(List<FirebaseVisionBarcode> firebaseVisionBarcodes) {
+        if(firebaseVisionBarcodes.size()>0){
+            isDetected=true;
+            startScanning.setEnabled(isDetected);
+            for (FirebaseVisionBarcode item:firebaseVisionBarcodes){
+                int value_type = item.getValueType();
+                switch (value_type){
+                    case FirebaseVisionBarcode.TYPE_TEXT:
+                        createDialog(item.getRawValue());
+                }
+            }
+        }
+    }
+
+    private void createDialog(String rawValue) {
 
     }
 
