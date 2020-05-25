@@ -1,6 +1,7 @@
 package com.paico.paico_tour;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -120,7 +122,15 @@ public class BarcodeReaderFragment extends AppCompatActivity {
     }
 
     private void createDialog(String rawValue) {
-
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(rawValue).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog=builder.create();
+        dialog.show();
     }
 
     public FirebaseVisionImage getVisionImageFromFrame(Frame frame){
