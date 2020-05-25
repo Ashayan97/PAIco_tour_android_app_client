@@ -37,7 +37,7 @@
             android:layout_weight="20">
 
             <ImageButton
-                android:id="@+id/opinion_dialog_get_opinion_get_place_button"
+                android:id="@+id/activity_barcode_start_scan_btn"
                 style="?android:buttonBarButtonStyle"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
