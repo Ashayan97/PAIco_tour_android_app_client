@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //TODO Remove later
-        startActivity(new Intent(MainActivity.this, BarcodeReaderActivity.class));
+        startActivity(new Intent(MainActivity.this, DrawerActivity.class));
         finish();
         //
 

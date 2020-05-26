@@ -42,11 +42,10 @@ public class BarcodeReaderActivity extends AppCompatActivity {
     private FirebaseVisionBarcodeDetector detector;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barcode);
-        getCameraPermission();
-
+//        getCameraPermission();
     }
 
     private void getCameraPermission() {
@@ -73,7 +72,7 @@ public class BarcodeReaderActivity extends AppCompatActivity {
                 isDetected = !isDetected;
             }
         });
-        cameraView.findViewById(R.id.barcode_fragment_camera_view);
+//        cameraView.findViewById(R.id.barcode_fragment_camera_view);
         cameraView.setLifecycleOwner(this);
         cameraView.addFrameProcessor(new FrameProcessor() {
             @Override
