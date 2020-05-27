@@ -44,8 +44,8 @@ public class BarcodeReaderActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_barcode);
-//        getCameraPermission();
+        setContentView(R.layout.activity_barcode_reader);
+        getCameraPermission();
     }
 
     private void getCameraPermission() {
@@ -72,7 +72,7 @@ public class BarcodeReaderActivity extends AppCompatActivity {
                 isDetected = !isDetected;
             }
         });
-//        cameraView.findViewById(R.id.barcode_fragment_camera_view);
+        cameraView = findViewById(R.id.barcode_activity_camera_view);
         cameraView.setLifecycleOwner(this);
         cameraView.addFrameProcessor(new FrameProcessor() {
             @Override
