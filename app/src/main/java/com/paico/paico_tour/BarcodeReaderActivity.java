@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -37,7 +38,7 @@ import java.util.List;
 public class BarcodeReaderActivity extends AppCompatActivity {
     private CameraView cameraView;
     private boolean isDetected;
-    private ImageButton startScanning;
+    private Button startScanning;
     private FirebaseVisionBarcodeDetectorOptions options;
     private FirebaseVisionBarcodeDetector detector;
 

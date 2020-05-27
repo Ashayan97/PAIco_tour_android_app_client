@@ -21,10 +21,11 @@
             >
                     <com.otaliastudios.cameraview.CameraView
                         android:layout_width="match_parent"
+                        android:layout_margin="@dimen/small_margin"
                         android:layout_height="match_parent"
                         android:id="@+id/barcode_activity_camera_view"
                         />
-            <view
+            <View
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
@@ -35,18 +36,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:gravity="center"
             android:layout_weight="20">
-
+            <TextView
+                android:gravity="center"
+                android:text="Click to scan to pay:"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:textColor="@color/black"
+                />
             <Button
                 android:id="@+id/activity_barcode_start_scan_btn"
-                style="?android:buttonBarButtonStyle"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="0dp"
+                android:layout_weight="90"
                 android:layout_gravity="center"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/place_fragment_bottom"
+                android:text="Pay"
+                android:padding="@dimen/small_margin"
                 android:drawableTop="@drawable/buy_icon_button" />
 
         </LinearLayout>
