@@ -75,7 +75,7 @@ public class BarcodeReaderActivity extends AppCompatActivity {
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
                 isDetected = !isDetected;
-
+                startScanning.setEnabled(isDetected);
             }
         });
         cameraView = findViewById(R.id.barcode_activity_camera_view);
