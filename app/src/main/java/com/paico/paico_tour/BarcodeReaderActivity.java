@@ -9,6 +9,7 @@ import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,7 +38,8 @@ import java.util.List;
 
 public class BarcodeReaderActivity extends AppCompatActivity {
     private CameraView cameraView;
-    private boolean isDetected;
+    private ProgressBar progressBar;
+    private boolean isDetected=true;
     private Button startScanning;
     private FirebaseVisionBarcodeDetectorOptions options;
     private FirebaseVisionBarcodeDetector detector;
@@ -65,12 +67,15 @@ public class BarcodeReaderActivity extends AppCompatActivity {
     }
 
     private void setUpCamera() {
+        progressBar = findViewById(R.id.activity_barcode_progress_bar);
         startScanning = findViewById(R.id.activity_barcode_start_scan_btn);
         startScanning.setEnabled(isDetected);
         startScanning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 isDetected = !isDetected;
+
             }
         });
         cameraView = findViewById(R.id.barcode_activity_camera_view);
@@ -110,9 +115,11 @@ public class BarcodeReaderActivity extends AppCompatActivity {
         if (firebaseVisionBarcodes.size() > 0) {
             isDetected = true;
             startScanning.setEnabled(isDetected);
+            progressBar.setVisibility(View.INVISIBLE);
             for (FirebaseVisionBarcode item : firebaseVisionBarcodes) {
                 int value_type = item.getValueType();
                 switch (value_type) {
+                    //ToDo manage barcode scanner function
                     case FirebaseVisionBarcode.TYPE_TEXT:
                         createDialog(item.getRawValue());
                         break;
