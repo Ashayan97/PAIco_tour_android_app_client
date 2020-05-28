@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#175F97"
     android:padding="@dimen/small_margin">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -17,45 +18,6 @@
         android:padding="@dimen/small_margin"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginLeft="@dimen/small_margin"
-        android:layout_marginRight="@dimen/small_margin"
-        android:layout_marginBottom="@dimen/small_margin"
-        android:layout_weight="1.2"
-        android:orientation="horizontal"
-        android:padding="@dimen/small_margin">
-
-        <ScrollView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/description_background"
-            android:layout_weight="1"
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-
-                <TextView
-                    android:padding="@dimen/small_margin"
-                    android:id="@+id/place_fragment_info_form"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/small_margin"
-                    android:text="@string/place_info_form" />
-
-
-
-            </LinearLayout>
-
-        </ScrollView>
-
-
-
-
-    </LinearLayout>
 
 
     <LinearLayout
@@ -86,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/some_where"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="30sp" />
 
                 <TextView
@@ -95,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:padding="20dp"
                     android:layout_margin="@dimen/small_margin"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/white" />
                 <LinearLayout
                     android:background="@color/black"
                     android:layout_width="match_parent"
@@ -113,7 +75,14 @@
                         android:adjustViewBounds="true" />
                 </LinearLayout>
 
-
+                <TextView
+                    android:padding="@dimen/small_margin"
+                    android:id="@+id/place_fragment_info_form"
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:layout_marginEnd="@dimen/small_margin"
+                    android:textColor="@color/white"
+                    android:text="@string/place_info_form" />
 
 
 
@@ -121,9 +90,16 @@
 
 
         </ScrollView>
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/small_margin"
+            android:background="@color/black" />
         <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="1"
+            android:background="#0C3759"
             android:layout_height="0dp">
 
             <LinearLayout
