@@ -20,4 +20,9 @@
         android:name="com.paico.paico_tour.TransactionFragment"
         android:label="@string/transactions"
         tools:layout="@layout/transaction_fragment" />
+    <fragment
+        android:id="@+id/nav_charge"
+        android:name="com.paico.paico_tour.ChargeFragment"
+        android:label="@string/charge"
+        tools:layout="@layout/charge_fragment" />
 </navigation>

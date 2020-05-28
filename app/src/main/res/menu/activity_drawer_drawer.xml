@@ -16,5 +16,9 @@
             android:id="@+id/nav_transactions"
             android:icon="@drawable/transaction_icon_mini"
             android:title="@string/transactions" />
+        <item
+            android:id="@+id/nav_charge"
+            android:icon="@drawable/charge_menu_icon"
+            android:title="@string/charge"/>
     </group>
 </menu>

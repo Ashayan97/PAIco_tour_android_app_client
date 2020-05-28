@@ -11,7 +11,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 public class ChargeFragment extends Fragment {
     private EditText addMoneyAmount;
@@ -51,5 +54,8 @@ public class ChargeFragment extends Fragment {
         balanceAmount = view.findViewById(R.id.charge_fragment_amount_of_money);
         chargeButton = view.findViewById(R.id.charge_fragment_button);
         chargeRecyclerView = view.findViewById(R.id.charge_fragment_recycler_view);
+        ChargeFragmentCardViewHandler handler=new ChargeFragmentCardViewHandler(new ArrayList<Transactions>());
+        chargeRecyclerView.setAdapter(handler);
+        chargeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 }
