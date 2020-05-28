@@ -30,6 +30,7 @@
                 android:layout_gravity="center"/>
 
             <TextView
+                android:id="@+id/charge_fragment_amount_of_money"
                 android:background="@drawable/description_background"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -48,6 +49,7 @@
                 android:layout_gravity="center"/>
 
             <EditText
+                android:id="@+id/charge_fragment_add_money"
                 android:layout_margin="@dimen/small_margin"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -95,6 +97,7 @@
                 android:text="@string/last_charges"
                 android:layout_gravity="center"/>
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/charge_fragment_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/small_margin"
