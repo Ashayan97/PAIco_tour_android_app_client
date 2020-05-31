@@ -7,19 +7,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
+        <LinearLayout
+            android:layout_margin="@dimen/small_margin"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="70"
+            android:background="@drawable/description_background"
+            android:orientation="vertical">
         <LinearLayout
             android:layout_margin="@dimen/wall_distance"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="50"
-            android:background="@drawable/description_background"
-
             android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="50"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -33,12 +33,12 @@
                 android:id="@+id/charge_fragment_amount_of_money"
                 android:background="@drawable/description_background"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="100dp"
                 android:text="10000T"
                 android:textSize="30sp"
                 android:gravity="center"
                 android:layout_margin="@dimen/small_margin"
-                android:layout_weight="25" />
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -52,16 +52,13 @@
                 android:id="@+id/charge_fragment_add_money"
                 android:layout_margin="@dimen/small_margin"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="100dp"
                 android:hint="Enter the amount of charge"
                 android:gravity="center"
                 android:background="@drawable/description_background"
-                android:layout_weight="25"/>
+               />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="50"/>
+
 
         </LinearLayout>
 
@@ -75,14 +72,15 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
-                android:background="@drawable/place_fragment_bottom"
+                android:background="@drawable/buttom_shape"
+                android:textColor="@color/white"
                 android:text="@string/charge"
                 android:padding="@dimen/small_margin"
                 />
 
 
         </LinearLayout>
-
+            </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
