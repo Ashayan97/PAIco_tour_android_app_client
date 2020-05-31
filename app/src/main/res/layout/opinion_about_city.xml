@@ -17,6 +17,7 @@
         android:id="@+id/opinion_add_new_opinion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/vivid_cerulean"
         android:layout_margin="@dimen/wall_distance"
         app:layout_constraintBottom_toBottomOf="parent"
         android:src="@drawable/add_icon"

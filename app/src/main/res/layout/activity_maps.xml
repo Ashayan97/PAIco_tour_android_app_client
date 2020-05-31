@@ -39,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/wall_distance"
+        android:backgroundTint="@color/vivid_cerulean"
         android:src="@drawable/menu_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -49,24 +50,24 @@
         android:visibility="invisible"
         android:clickable="false"
         android:id="@+id/activity_maps_location_floating_button"
+        android:backgroundTint="@color/vivid_cerulean"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/small_margin"
-        android:layout_marginBottom="@dimen/wall_distance"
-        android:src="@drawable/my_location_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/activity_maps_menu_floating_button" />
+        android:layout_margin="@dimen/wall_distance"
 
+        android:src="@drawable/my_location_icon"
+        app:layout_constraintBottom_toTopOf="@id/activity_maps_menu_floating_button"
+        app:layout_constraintRight_toRightOf="parent"/>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:visibility="invisible"
         android:clickable="false"
         android:id="@+id/activity_maps_pay_floating_button"
+        android:backgroundTint="@color/vivid_cerulean"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/wall_distance"
-        android:layout_marginBottom="@dimen/small_margin"
+        android:layout_margin="@dimen/wall_distance"
         android:src="@drawable/money_icon"
-        app:layout_constraintBottom_toTopOf="@id/activity_maps_menu_floating_button"
+        app:layout_constraintBottom_toTopOf="@id/activity_maps_charge_floating_button"
         app:layout_constraintRight_toRightOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -74,11 +75,12 @@
         android:clickable="false"
         android:id="@+id/activity_maps_charge_floating_button"
         android:layout_width="wrap_content"
+        android:backgroundTint="@color/vivid_cerulean"
         android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/small_margin"
-        android:layout_marginBottom="@dimen/small_margin"
+        android:layout_margin="@dimen/wall_distance"
+
         android:src="@drawable/charge_floating_icon"
         app:layout_constraintBottom_toTopOf="@id/activity_maps_location_floating_button"
-        app:layout_constraintRight_toLeftOf="@id/activity_maps_pay_floating_button" />
+        app:layout_constraintRight_toRightOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

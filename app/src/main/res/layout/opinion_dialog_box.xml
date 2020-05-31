@@ -173,9 +173,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
-            android:background="@drawable/place_fragment_bottom"
+            android:background="@drawable/buttom_shape"
             android:drawableBottom="@drawable/star_icon"
             android:gravity="center"
+            android:textColor="@color/white"
             android:padding="@dimen/small_margin"
             android:text="@string/get_point" />
 
