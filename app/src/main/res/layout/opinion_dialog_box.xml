@@ -168,17 +168,18 @@
         android:layout_weight="0.5">
 
         <Button
-            style="?android:buttonBarButtonStyle"
             android:id="@+id/opinion_dialog_get_point_button"
+            style="?android:buttonBarButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
             android:background="@drawable/buttom_shape"
+            android:textColor="@color/white"
             android:drawableBottom="@drawable/star_icon"
             android:gravity="center"
-            android:textColor="@color/white"
             android:padding="@dimen/small_margin"
-            android:text="@string/get_point" />
+            android:text="@string/get_point"
+  />
 
     </LinearLayout>
 </LinearLayout>
