@@ -20,7 +20,8 @@
             android:layout_marginLeft="@dimen/wall_distance"
             android:layout_marginRight="@dimen/wall_distance"
             android:layout_marginBottom="@dimen/wall_distance"
-            android:background="@drawable/description_background2"
+            android:background="@drawable/dialog_background"
+            android:padding="@dimen/small_margin"
             android:orientation="vertical">
 
             <TextView
@@ -86,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
-                android:layout_margin="20dp"
+                android:layout_margin="30dp"
                 android:background="@drawable/buttom_shape"
                 android:padding="@dimen/small_margin"
                 android:text="@string/charge"

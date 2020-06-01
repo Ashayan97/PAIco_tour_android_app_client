@@ -158,7 +158,8 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         charge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO
+                ChargeDialogBox chargeDialogBox = new ChargeDialogBox(getContext());
+                chargeDialogBox.show();
             }
         });
         currentLocation.setOnClickListener(new View.OnClickListener() {

@@ -1,6 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="400dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_background"
+    android:padding="@dimen/small_margin"
+    >
+
+    <TextView
+        android:layout_margin="@dimen/small_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/balance"
+        android:textColor="@color/white" />
+
+    <TextView
+
+        android:id="@+id/charge_dialog_box_amount_of_money"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="#2B6B9E"
+        android:gravity="center"
+        android:text="10000T"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="@dimen/wall_distance"
+        android:background="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Charge:"
+        android:textColor="@color/white" />
+
+    <EditText
+        android:id="@+id/charge_dialog_box_add_money"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:background="#2B6B9E"
+        android:textColor="@color/white"
+        android:layout_marginRight="30dp"
+        android:gravity="center"
+        android:hint="Enter the amount of charge" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="@dimen/wall_distance"
+        android:background="@color/black"/>
+
+    <Button
+        android:id="@+id/charge_dialog_box_button"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        android:background="@drawable/buttom_shape"
+        android:padding="@dimen/small_margin"
+        android:text="@string/charge"
+
+        android:textColor="@color/white" />
 
 </LinearLayout>
