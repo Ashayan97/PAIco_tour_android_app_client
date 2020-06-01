@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/small_margin"
                     android:text="atash kadeh"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/white" />
             </LinearLayout>
 
             <LinearLayout
@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/small_margin"
                     android:text="+989178556367"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -101,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/small_margin"
             android:text="yazd, old st,some where nice"
-            android:textColor="@color/black" />
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <LinearLayout
@@ -134,7 +134,7 @@
 
             <ImageButton
                 android:id="@+id/place_show_dialog_box_show_btn"
-                android:background="@drawable/place_fragment_bottom"
+                android:background="@drawable/buttom_shape"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 style="?android:buttonBarButtonStyle"
