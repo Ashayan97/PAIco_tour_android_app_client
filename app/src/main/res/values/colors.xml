@@ -11,6 +11,8 @@
     <color name="cream_white">#E4E6D8</color>
     <color name="blue">#0D73C5</color>
     <color name="transparent">#00000000</color>
+    <color name="dark_background">#0C3759</color>
+    <color name="light_background">#175F97</color>
 
 
 </resources>

@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@color/dark_background"
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:background="#175F97"
+        android:background="@color/light_background"
         android:id="@+id/charge_fragment_add_charge_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,6 +66,7 @@
                 android:textColor="@color/white" />
 
             <EditText
+                android:inputType="number"
                 android:id="@+id/charge_fragment_add_money"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -99,7 +101,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/black"
+        android:background="@color/white"
         android:id="@+id/charge_fragment_line_view"
         app:layout_constraintBottom_toTopOf="@id/charge_fragment_previous_charge_layout"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -112,6 +114,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="@color/dark_background"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/charge_fragment_line_view">
@@ -123,7 +126,7 @@
             android:layout_gravity="center"
             android:text="@string/last_charges"
             android:textSize="20sp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@id/charge_fragment_recycler_view"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -132,9 +135,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/charge_fragment_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_margin="@dimen/small_margin" />
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@color/dark_background" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
