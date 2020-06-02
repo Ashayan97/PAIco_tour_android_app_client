@@ -40,7 +40,7 @@
     <string name="live_info">Live info</string>
     <string name="directions">Directions</string>
     <string name="item_and_places">Item and Places</string>
-    <string name="get_point">get point</string>
+    <string name="get_point">give point</string>
     <string name="please_choose_your_point">Please choose your point:</string>
     <string name="required">(required)</string>
     <string name="place_you_suggest">Place you suggest:</string>

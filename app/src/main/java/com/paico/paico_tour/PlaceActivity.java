@@ -28,6 +28,7 @@ public class PlaceActivity extends AppCompatActivity {
     private Button direction;
     private Button liveInfo;
     private Button placesAndItem;
+    private Button givePoint;
     private ScrollView scrollView;
 
 
@@ -83,6 +84,18 @@ public class PlaceActivity extends AppCompatActivity {
                 //TODO
             }
         });
+        givePoint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GetPointDialogBox getPointDialogBox = new GetPointDialogBox(PlaceActivity.this, new PointHandler() {
+                    @Override
+                    public void pointHandler(float point) {
+                        //TODO
+                    }
+                });
+                getPointDialogBox.show();
+            }
+        });
     }
 
     private void findView() {
@@ -94,6 +107,7 @@ public class PlaceActivity extends AppCompatActivity {
         ticket = findViewById(R.id.place_fragment_ticket);
         direction = findViewById(R.id.place_fragment_direction);
         liveInfo = findViewById(R.id.place_fragment_live_info);
+        givePoint = findViewById(R.id.place_fragment_give_point);
         placesAndItem = findViewById(R.id.place_fragment_item_and_places);
         scrollView = findViewById(R.id.place_fragment_scroll_view);
 

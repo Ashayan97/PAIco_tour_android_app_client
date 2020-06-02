@@ -159,6 +159,17 @@
                     android:padding="@dimen/small_margin"
                     android:text="@string/item_and_places" />
 
+                <Button
+                    style="?android:buttonBarButtonStyle"
+                    android:id="@+id/place_fragment_give_point"
+                    android:layout_width="125dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/place_fragment_bottom"
+                    android:drawableStart="@drawable/star_icon"
+                    android:gravity="center"
+                    android:padding="@dimen/small_margin"
+                    android:text="@string/get_point" />
 
             </LinearLayout>
         </HorizontalScrollView>
