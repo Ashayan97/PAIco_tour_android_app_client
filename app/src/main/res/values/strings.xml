@@ -54,5 +54,6 @@
     <string name="balance">Balance:</string>
     <string name="charge">Charge</string>
     <string name="last_charges">Last Charges:</string>
+    <string name="full_name">Full name:</string>
 
 </resources>
