@@ -44,6 +44,7 @@ public class BarcodeReaderActivity extends AppCompatActivity {
     private FirebaseVisionBarcodeDetectorOptions options;
     private FirebaseVisionBarcodeDetector detector;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
