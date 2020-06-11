@@ -143,6 +143,33 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@color/black" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <Button
+                        android:clickable="false"
+                        android:layout_margin="@dimen/small_margin"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/window_dialog_background"
+                        android:drawableTop="@drawable/submit3"
+                        android:textColor="@color/white"
+                        android:text="submit"
+                        />
+
+                    <Button
+                        android:layout_margin="@dimen/small_margin"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:drawableTop="@drawable/edit_icon"
+                        android:text="Edit"
+                        android:background="@drawable/window_dialog_background"
+                        android:textColor="@color/white"
+
+                        />
+                </LinearLayout>
             </LinearLayout>
 
 
