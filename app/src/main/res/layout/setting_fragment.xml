@@ -21,7 +21,8 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:id="@+id/setting_fragment_gallery"/>
 
 
             </LinearLayout>
@@ -41,7 +42,8 @@
                     android:textColor="@color/white"/>
 
                 <EditText
-                    android:inputType="none"
+                    android:inputType="text"
+                    android:clickable="false"
                     android:textColor="@color/white"
                     android:text="name"
                     android:id="@+id/setting_fragment_name"
@@ -65,7 +67,7 @@
                     android:layout_margin="10dp"
                     android:textColor="@color/white"/>
                 <EditText
-                    android:editable="false"
+                    android:clickable="false"
                     android:id="@+id/setting_fragment_password"
                     android:inputType="textPassword"
                     android:textColor="@color/white"
@@ -88,7 +90,8 @@
                     android:layout_margin="10dp"
                     android:textColor="@color/white"/>
                 <EditText
-                    android:inputType="none"
+                    android:inputType="date"
+                    android:clickable="false"
                     android:textColor="@color/white"
                     android:id="@+id/setting_fragment_date"
                     android:text="date"
@@ -110,7 +113,8 @@
                     android:layout_margin="10dp"
                     android:textColor="@color/white"/>
                 <EditText
-                    android:inputType="none"
+                    android:inputType="phone"
+                    android:clickable="false"
                     android:textColor="@color/white"
                     android:text="09178556367"
                     android:id="@+id/setting_fragment_phone"
@@ -133,7 +137,8 @@
                     android:layout_margin="10dp"
                     android:textColor="@color/white"/>
                 <EditText
-                    android:inputType="none"
+                    android:inputType="textEmailAddress"
+                    android:clickable="false"
                     android:id="@+id/setting_fragment_email"
                     android:textColor="@color/white"
                     android:text="sshayan997@gmail.com"
