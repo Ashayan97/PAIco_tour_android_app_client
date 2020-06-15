@@ -20,5 +20,9 @@
             android:id="@+id/nav_charge"
             android:icon="@drawable/charge_menu_icon"
             android:title="@string/charge"/>
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/setting_icon"
+            android:title="setting"/>
     </group>
 </menu>
