@@ -44,6 +44,7 @@
                     android:inputType="none"
                     android:textColor="@color/white"
                     android:text="name"
+                    android:id="@+id/setting_fragment_name"
                     android:padding="@dimen/small_margin"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -65,6 +66,7 @@
                     android:textColor="@color/white"/>
                 <EditText
                     android:editable="false"
+                    android:id="@+id/setting_fragment_password"
                     android:inputType="textPassword"
                     android:textColor="@color/white"
                     android:text="@string/password"
@@ -88,6 +90,7 @@
                 <EditText
                     android:inputType="none"
                     android:textColor="@color/white"
+                    android:id="@+id/setting_fragment_date"
                     android:text="date"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -110,6 +113,7 @@
                     android:inputType="none"
                     android:textColor="@color/white"
                     android:text="09178556367"
+                    android:id="@+id/setting_fragment_phone"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
@@ -130,6 +134,7 @@
                     android:textColor="@color/white"/>
                 <EditText
                     android:inputType="none"
+                    android:id="@+id/setting_fragment_email"
                     android:textColor="@color/white"
                     android:text="sshayan997@gmail.com"
                     android:layout_width="match_parent"
@@ -149,6 +154,7 @@
                     android:orientation="horizontal"
                     android:gravity="center">
                     <Button
+                        android:id="@+id/setting_fragment_submit_btn"
                         android:clickable="false"
                         android:layout_margin="@dimen/small_margin"
                         android:layout_width="60dp"
@@ -162,6 +168,7 @@
                     <Button
                         android:layout_margin="@dimen/small_margin"
                         android:layout_width="60dp"
+                        android:id="@+id/setting_fragment_edit_btn"
                         android:layout_height="60dp"
                         android:drawableTop="@drawable/edit_icon"
                         android:text="Edit"
