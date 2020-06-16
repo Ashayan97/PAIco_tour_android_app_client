@@ -42,14 +42,15 @@
                     android:textColor="@color/white"/>
 
                 <EditText
-                    android:inputType="text"
+                    android:inputType="textPersonName"
+                    android:editable="false"
                     android:clickable="false"
                     android:textColor="@color/white"
                     android:text="name"
                     android:id="@+id/setting_fragment_name"
                     android:padding="@dimen/small_margin"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp" />
                 <View
@@ -73,7 +74,7 @@
                     android:textColor="@color/white"
                     android:text="@string/password"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp" />
                 <View
@@ -96,7 +97,7 @@
                     android:id="@+id/setting_fragment_date"
                     android:text="date"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp" />
                 <View
@@ -119,7 +120,7 @@
                     android:text="09178556367"
                     android:id="@+id/setting_fragment_phone"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp" />
                 <View
@@ -143,7 +144,7 @@
                     android:textColor="@color/white"
                     android:text="sshayan997@gmail.com"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp" />
                 <View
@@ -163,7 +164,7 @@
                         android:clickable="false"
                         android:layout_margin="@dimen/small_margin"
                         android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_height="80dp"
                         android:background="@drawable/window_dialog_background"
                         android:drawableTop="@drawable/submit3"
                         android:textColor="@color/white"
@@ -172,7 +173,7 @@
 
                     <Button
                         android:layout_margin="@dimen/small_margin"
-                        android:layout_width="60dp"
+                        android:layout_width="80dp"
                         android:id="@+id/setting_fragment_edit_btn"
                         android:layout_height="60dp"
                         android:drawableTop="@drawable/edit_icon"
