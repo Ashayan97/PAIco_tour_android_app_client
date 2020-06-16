@@ -2,13 +2,16 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/small_margin">
+    android:layout_margin="@dimen/small_margin"
+    >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/item_and_places_layout"
         android:orientation="vertical"
         android:clickable="true"
+        android:background="@color/dark_background"
+
         android:focusable="true">
 
         <LinearLayout
@@ -29,8 +32,9 @@
                 android:src="@drawable/place_icon" />
 
             <TextView
-                android:id="@+id/opinion_dialog_places_place_name"
+                android:id="@+id/item_and_places_place_name"
                 android:layout_width="0dp"
+                android:textColor="@color/white"
                 android:layout_height="wrap_content"
                 android:layout_weight="30"
                 android:gravity="center"
@@ -42,7 +46,7 @@
                 android:orientation="vertical"
                 >
                 <RatingBar
-                    android:id="@+id/opinion_dialog_places_rating_bar"
+                    android:id="@+id/item_and_places_rating_bar"
                     style="?android:attr/ratingBarStyleSmall"
                     android:layout_gravity="center"
                     android:layout_marginRight="@dimen/small_margin"
@@ -51,13 +55,14 @@
                     android:numStars="5" />
 
                 <TextView
+
                     android:layout_marginRight="@dimen/small_margin"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/opinion_dialog_places_place_point"
+                    android:id="@+id/item_and_places_place_point"
                     android:text="5"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     />
 
             </LinearLayout>
@@ -76,15 +81,17 @@
                 android:layout_height="30dp"
                 android:gravity="center"
                 android:layout_gravity="center"
+                android:textColor="@color/white"
                 android:text="@string/description" />
 
             <TextView
-                android:id="@+id/opinion_dialog_places_place_description"
+                android:id="@+id/item_and_places_place_description"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:text="this is test text and means nothing"
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/small_margin"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
         </LinearLayout>
     </LinearLayout>
