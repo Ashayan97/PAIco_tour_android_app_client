@@ -9,7 +9,111 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
+            android:id="@+id/item_and_places_dialog_box_recycler_view"
+            />
+        <view
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginTop="@dimen/wall_distance"
+            android:layout_marginRight="@dimen/wall_distance"
+            android:layout_marginLeft="@dimen/wall_distance"
+            android:layout_marginBottom="@dimen/small_margin"
+            />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/wall_distance"
+            android:layout_marginLeft="@dimen/wall_distance">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+                        <RatingBar
+                            android:id="@+id/item_and_places_dialog_box_rating_bar"
+                            style="?android:attr/ratingBarStyleSmall"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="@dimen/small_margin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:numStars="5" />
+
+                        <TextView
+
+                            android:layout_marginRight="@dimen/small_margin"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/item_and_places_dialog_box_place_point"
+                            android:text="5"
+                            android:textColor="@color/white"
+                            />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/item_and_places_dialog_box_get_point"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/wall_distance"
+                        android:layout_marginRight="@dimen/wall_distance"
+                        android:background="@drawable/buttom_shape"
+                        android:drawableBottom="@drawable/star_icon"
+                        android:textColor="@color/white"
+                        android:text="@string/get_point"/>
+                </LinearLayout>
+                <view
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    android:layout_marginTop="@dimen/wall_distance"
+                    android:layout_marginRight="@dimen/wall_distance"
+                    android:layout_marginLeft="@dimen/wall_distance"
+                    android:layout_marginBottom="@dimen/small_margin"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/item_and_places_dialog_box_title"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:textSize="30sp"
+                    android:text="fire"
+                    android:textColor="@color/black"
+                    android:gravity="center" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/item_and_places_dialog_box_info"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:textColor="@color/black"
+                    android:gravity="center" />
+
+
+            </LinearLayout>
+
+
+
+
+        </ScrollView>
+
 
 
     </LinearLayout>
