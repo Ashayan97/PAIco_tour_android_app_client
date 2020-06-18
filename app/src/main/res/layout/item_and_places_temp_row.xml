@@ -21,15 +21,24 @@
             android:paddingLeft="@dimen/small_margin"
             android:orientation="horizontal"
             android:paddingTop="@dimen/small_margin">
-
-            <ImageView
-                android:id="@+id/item_and_places_image_view"
+            <FrameLayout
                 android:layout_width="0dp"
                 android:layout_height="@dimen/wall_distance"
-                android:layout_weight="30"
-                android:scaleType="centerInside"
-                android:adjustViewBounds="true"
-                android:src="@drawable/place_icon" />
+                android:layout_weight="30">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/item_and_places_image_view"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true" />
+                <ProgressBar
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/item_and_places_temp_row_progress_bar"/>
+
+            </FrameLayout>
+
+
 
             <TextView
                 android:id="@+id/item_and_places_place_name"

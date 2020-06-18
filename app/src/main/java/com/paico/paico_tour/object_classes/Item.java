@@ -4,6 +4,7 @@ public class Item {
     private String info;
     private String title;
     private String[] imgUrls;
+    private String imgProfile;
     private float point;
 
     public String getInfo() {
@@ -24,6 +25,14 @@ public class Item {
 
     public String[] getImgUrls() {
         return imgUrls;
+    }
+
+    public String getImgProfile() {
+        return imgProfile;
+    }
+
+    public void setImgProfile(String imgProfile) {
+        this.imgProfile = imgProfile;
     }
 
     public void setImgUrls(String[] imgUrls) {
