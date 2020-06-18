@@ -2,6 +2,8 @@ package com.paico.paico_tour;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -24,9 +26,28 @@ public class ItemAndPlacesDialogBox extends Dialog {
 
     public ItemAndPlacesDialogBox(@NonNull Context context, Item item) {
         super(context);
+        setContentView(R.layout.item_and_place_info_show);
+        getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT);
         this.item=item;
         findView();
         setUpView(context);
+        onClick();
+    }
+
+    private void onClick() {
+        getPointBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GetPointDialogBox getPointDialogBox = new GetPointDialogBox(getContext(), new PointHandler() {
+                    @Override
+                    public void pointHandler(float point) {
+                        //TODO
+                    }
+                });
+                getPointDialogBox.show();
+            }
+        });
     }
 
     private void setUpView(Context context) {
