@@ -30,6 +30,7 @@ public class FullScreenGalleryCardViewHandler extends RecyclerView.Adapter<FullS
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        new ImageLoader(holder.imageView,holder.progressBar).doInBackground(urls[position]);
 
     }
 
@@ -44,7 +45,8 @@ public class FullScreenGalleryCardViewHandler extends RecyclerView.Adapter<FullS
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-//            progressBar=itemView.findViewById(R.id.item_and_places_)V
+            imageView=itemView.findViewById(R.id.temp_full_gallery_image_view);
+            progressBar=itemView.findViewById(R.id.temp_full_gallery_progress_bar);
         }
     }
 }
