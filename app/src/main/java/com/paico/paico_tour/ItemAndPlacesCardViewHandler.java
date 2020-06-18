@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.paico.paico_tour.object_classes.Item;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
+
 
 public class ItemAndPlacesCardViewHandler extends RecyclerView.Adapter<ItemAndPlacesCardViewHandler.ViewHolder> {
 
