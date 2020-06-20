@@ -24,7 +24,7 @@ public class ItemAndPlaceActivity extends AppCompatActivity {
 
     private void findView() {
         recyclerView = findViewById(R.id.item_and_places_recycle_view);
-        ItemAndPlacesCardViewHandler handler = new ItemAndPlacesCardViewHandler(new ArrayList<Item>());
+        ItemAndPlacesCardViewHandler handler = new ItemAndPlacesCardViewHandler(new ArrayList<Item>(),this);
         recyclerView.setAdapter(handler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
