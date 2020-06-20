@@ -4,7 +4,12 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.paico.paico_tour.object_classes.Item;
+
+import java.util.ArrayList;
 
 public class ItemAndPlaceActivity extends AppCompatActivity {
 
@@ -19,6 +24,9 @@ public class ItemAndPlaceActivity extends AppCompatActivity {
 
     private void findView() {
         recyclerView = findViewById(R.id.item_and_places_recycle_view);
+        ItemAndPlacesCardViewHandler handler = new ItemAndPlacesCardViewHandler(new ArrayList<Item>());
+        recyclerView.setAdapter(handler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 }
