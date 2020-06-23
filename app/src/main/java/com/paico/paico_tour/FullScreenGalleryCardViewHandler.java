@@ -30,7 +30,7 @@ public class FullScreenGalleryCardViewHandler extends RecyclerView.Adapter<FullS
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        new ImageLoader(holder.imageView,holder.progressBar).doInBackground(urls[position]);
+        new ImageLoader(holder.imageView,holder.progressBar).execute(urls[position]);
 
     }
 

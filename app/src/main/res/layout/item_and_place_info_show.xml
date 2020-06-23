@@ -80,15 +80,15 @@
                         android:textColor="@color/white"
                         android:text="@string/get_point"/>
                 </LinearLayout>
-                <view
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/black"
-                    android:layout_marginTop="@dimen/wall_distance"
-                    android:layout_marginRight="@dimen/wall_distance"
-                    android:layout_marginLeft="@dimen/wall_distance"
-                    android:layout_marginBottom="@dimen/small_margin"
-                    />
+<!--                <view-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="1dp"-->
+<!--                    android:background="@color/black"-->
+<!--                    android:layout_marginTop="@dimen/wall_distance"-->
+<!--                    android:layout_marginRight="@dimen/wall_distance"-->
+<!--                    android:layout_marginLeft="@dimen/wall_distance"-->
+<!--                    android:layout_marginBottom="@dimen/small_margin"-->
+<!--                    />-->
 
                 <TextView
                     android:layout_width="match_parent"
