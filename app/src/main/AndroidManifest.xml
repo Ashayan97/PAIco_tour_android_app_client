@@ -30,6 +30,10 @@
             android:label="@string/title_activity_drawer"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".ItemAndPlaceActivity"
+            android:label="items and places"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name=".PlaceActivity"
             android:label="Places"
             android:theme="@style/AppTheme" />

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
+import com.paico.paico_tour.object_classes.Item;
 
 public class PlaceActivity extends AppCompatActivity {
 
@@ -37,8 +38,10 @@ public class PlaceActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place);
+        //TODO remove next lines
         Gson gson = new Gson();
         place = gson.fromJson(getIntent().getStringExtra("place"), Places.class);
+        //////
         findView();
         setView();
         onClick();
@@ -83,6 +86,23 @@ public class PlaceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(PlaceActivity.this,ItemAndPlaceActivity.class);
+                Item item = new Item();
+                //TODO remove next lines
+                item.setInfo("Apart from relatively minor fire temples, three were said to derive directly from Ahura Mazda, thus making them the most important in Zoroastrian tradition. These were the \"Great Fires\" or \"Royal Fires\" of Adur Burzen-Mihr, Adur Farnbag, and Adur Gushnasp. The legends of the Great Fires are probably of antiquity (see also Denkard citation, below), for by the 3rd century CE, miracles were said to happen at the sites, and the fires were popularly associated with other legends such as those of the folktale heroes Fereydun, Jamshid and Rustam.\n" +
+                        "\n" +
+                        "The Bundahishn, an encyclopaediaic collection of Zoroastrian cosmogony and cosmology written in Book Pahlavi,[19] which was finished in the 11th or 12th century CE, states that the Great Fires had existed since creation and had been brought forth on the back of the ox Srishok to propagate the faith, dispel doubt, and protect all humankind. Other texts observe that the Great Fires were also vehicles of propaganda and symbols of imperial sovereignty.\n" +
+                        "\n" +
+                        "The priests of these respective \"Royal Fires\" are said to have competed with each other to draw pilgrims by promoting the legends and miracles that were purported to have occurred at their respective sites. Each of the three is also said to have mirrored social and feudal divisions: \"The fire which is Farnbag has made its place among the priests; ... the fire which is Gūshnasp has made its place among the warriors; ... the fire which is Būrzīn-Mitrō has made its place among agriculturists\" (Denkard, 6.293). These divisions are archaeologically and sociologically revealing, because they make clear that, since from at least the 1st century BCE onwards, society was divided into four, not three, feudal estates.");
+                item.setImgProfile("https://intoday.ir/wp-content/uploads/2018/05/Zoroastrian_Fire_Temple_Intoday_Ir-3-780x470.jpg");
+                item.setPoint(3/2);
+                item.setTitle("Yazd Eternal Fire");
+                String urls[]=new String[1];
+                urls[0]="https://intoday.ir/wp-content/uploads/2018/05/Zoroastrian_Fire_Temple_Intoday_Ir-3-780x470.jpg";
+                item.setImgUrls(urls);
+                Gson gson=new Gson();
+                String newClass=gson.toJson(item);
+                intent.putExtra("items",newClass);
+                ////////////////////////////////////////////
                 startActivity(intent);
             }
         });
