@@ -3,9 +3,9 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/wall_distance"
     android:background="@drawable/dialog_background2"
-    android:padding="10dp"
+    android:paddingBottom="45dp"
+    android:layout_margin="10dp"
     android:orientation="vertical">
 
     <LinearLayout
@@ -18,6 +18,7 @@
             android:layout_marginTop="45dp"
             android:layout_marginLeft="45dp"
             android:layout_marginRight="45dp"
+            android:layout_marginBottom="@dimen/wall_distance"
             android:id="@+id/item_and_places_dialog_box_recycler_view"
             />
 <!--        <view-->
@@ -51,6 +52,7 @@
                             style="?android:attr/ratingBarStyleSmall"
                             android:layout_gravity="center"
                             android:layout_marginRight="@dimen/small_margin"
+                            android:layout_marginLeft="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:numStars="5" />
@@ -73,8 +75,8 @@
                         android:id="@+id/item_and_places_dialog_box_get_point"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/wall_distance"
-                        android:layout_marginRight="@dimen/wall_distance"
+                        android:layout_marginLeft="@dimen/small_margin"
+                        android:layout_marginBottom="@dimen/wall_distance"
                         android:background="@drawable/buttom_shape"
                         android:drawableBottom="@drawable/star_icon"
                         android:textColor="@color/white"

@@ -38,6 +38,7 @@ public class ItemAndPlacesDialogBox extends Dialog {
         setContentView(R.layout.item_and_place_info_show);
         getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.MATCH_PARENT);
+        getWindow().setBackgroundDrawableResource(R.drawable.window_dialog_background);
         findView();
         setUpView(getContext());
         onClick();
