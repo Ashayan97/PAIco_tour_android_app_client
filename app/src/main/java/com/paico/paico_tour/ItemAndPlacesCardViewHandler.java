@@ -44,7 +44,7 @@ public class ItemAndPlacesCardViewHandler extends RecyclerView.Adapter<ItemAndPl
         holder.info.setText(items.get(position).getInfo());
         holder.point.setText(String.valueOf(items.get(position).getPoint()));
         holder.ratingBar.setRating(items.get(position).getPoint());
-        new ImageLoader(holder.placeImage,holder.progressBar).doInBackground(items.get(position).getImgProfile());
+        new ImageLoader(holder.placeImage,holder.progressBar).execute(items.get(position).getImgProfile());
 
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
