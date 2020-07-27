@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class SigninFragment extends Fragment {
 
     private EditText email;
-    private EditText password;
+    private EditText phone;
     private ImageButton submit;
     private FirebaseAuth mAuth;
 
@@ -62,29 +62,29 @@ public class SigninFragment extends Fragment {
     private void startSignIn() {
 
         String sEmail = email.getText().toString();
-        String sPassword = password.getText().toString();
-        if (TextUtils.isEmpty(sEmail) || TextUtils.isEmpty(sPassword)) {
+        String sPhone = phone.getText().toString();
+        if (TextUtils.isEmpty(sPhone)) {
             Toast.makeText(getContext(), "You need To Fill both Fields", Toast.LENGTH_LONG).show();
 
         } else {
-            mAuth.signInWithEmailAndPassword(sEmail, sPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (!task.isSuccessful()) {
-                        Toast.makeText(getContext(), "LogIn Problem!", Toast.LENGTH_LONG).show();
-                    }else {
-                        startActivity(new Intent(getContext(), DrawerActivity.class));
-                        finisher.finishActivity();
-                    }
-                }
-            });
+//            mAuth.
+//            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                @Override
+//                public void onComplete(@NonNull Task<AuthResult> task) {
+//                    if (!task.isSuccessful()) {
+//                        Toast.makeText(getContext(), "LogIn Problem!", Toast.LENGTH_LONG).show();
+//                    }else {
+//                        startActivity(new Intent(getContext(), DrawerActivity.class));
+//                        finisher.finishActivity();
+//                    }
+//                }
+//            });
         }
 
     }
 
     private void findView(View view) {
-        email = view.findViewById(R.id.sign_in_email);
-        password = view.findViewById(R.id.sign_in_password);
+        phone = view.findViewById(R.id.sign_in_phone);
         submit = view.findViewById(R.id.sign_in_btn);
     }
 }

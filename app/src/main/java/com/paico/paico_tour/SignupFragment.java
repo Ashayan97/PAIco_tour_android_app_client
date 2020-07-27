@@ -63,36 +63,35 @@ public class SignupFragment extends Fragment {
                     String sPassword = password.getText().toString();
                     String sPhoneNumber= phoneNumber.getText().toString();
                     final String sFirstName=firstName.getText().toString();
-                    String sLastName=lastName.getText().toString();
-                    mAuth.createUserWithEmailAndPassword(sEmail, sPassword).
-                            addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()) {
-                                        // Sign in success, update UI with the signed-in user's information
-                                        Log.d("userCreation", "createUserWithEmail:success");
-                                        FirebaseUser user = mAuth.getCurrentUser();
-                                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                                .setDisplayName(sFirstName)
-                                                .build();
-
-                                        user.updateProfile(profileUpdates)
-                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                    @Override
-                                                    public void onComplete(@NonNull Task<Void> task) {
-                                                        if (task.isSuccessful()) {
-
-                                                        }
-                                                    }
-                                                });
-                                    } else {
-                                        // If sign in fails, display a message to the user.
-                                        Log.w("userCreation", "createUserWithEmail:failure", task.getException());
-                                        Toast.makeText(getContext(), "Authentication failed.",
-                                                Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
+//                    mAuth.createUserWithEmailAndPassword(sEmail, sPassword).
+//                            addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<AuthResult> task) {
+//                                    if (task.isSuccessful()) {
+//                                        // Sign in success, update UI with the signed-in user's information
+//                                        Log.d("userCreation", "createUserWithEmail:success");
+//                                        FirebaseUser user = mAuth.getCurrentUser();
+//                                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+//                                                .setDisplayName(sFirstName)
+//                                                .build();
+//
+//                                        user.updateProfile(profileUpdates)
+//                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                                    @Override
+//                                                    public void onComplete(@NonNull Task<Void> task) {
+//                                                        if (task.isSuccessful()) {
+//
+//                                                        }
+//                                                    }
+//                                                });
+//                                    } else {
+//                                        // If sign in fails, display a message to the user.
+//                                        Log.w("userCreation", "createUserWithEmail:failure", task.getException());
+//                                        Toast.makeText(getContext(), "Authentication failed.",
+//                                                Toast.LENGTH_SHORT).show();
+//                                    }
+//                                }
+//                            });
                     ConfrmationCodeDialogBox confrmationCodeDialogBox = new ConfrmationCodeDialogBox(getActivity(),finisher);
                     confrmationCodeDialogBox.show();
 
@@ -112,9 +111,6 @@ public class SignupFragment extends Fragment {
 
     private void findView(View view) {
         firstName = view.findViewById(R.id.sign_up_first_name);
-        lastName = view.findViewById(R.id.sign_up_last_name);
-        password = view.findViewById(R.id.sign_up_password);
-        email = view.findViewById(R.id.sign_up_email);
         phoneNumber = view.findViewById(R.id.sign_up_phone_number);
         confirmBtn = view.findViewById(R.id.sign_up_confirm_btn);
     }
