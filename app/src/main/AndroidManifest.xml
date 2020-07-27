@@ -43,6 +43,9 @@
             android:name=".BarcodeReaderActivity"
             android:label="Payment Scanner" />
 
+        <activity android:name=".ConfrmationCodeActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
+
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

@@ -32,7 +32,6 @@ public class ConfrmationCodeActivity extends AppCompatActivity {
     private TextView resendBtn;
     private TextView counterView;
     private String phoneNumber;
-    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private String codeSent;
     private FirebaseAuth mAuth;
 
@@ -43,42 +42,14 @@ public class ConfrmationCodeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.phone_confirm);
-        this.phoneNumber=phoneNumber;
+        setContentView(R.layout.confirm_code_activity);
+        phoneNumber=getIntent().getStringExtra("phone");
         mAuth=FirebaseAuth.getInstance();
         findView();
         onClick();
-        mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-            @Override
-            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+        verifyPhoneNumber();
 
-            }
-
-            @Override
-            public void onVerificationFailed(@NonNull FirebaseException e) {
-
-            }
-
-            @Override
-            public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                super.onCodeSent(s, forceResendingToken);
-                codeSent = s;
-                Log.d("phone_info",s);
-            }
-        };
-        Log.d("phone_info",phoneNumber);
-
-
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                phoneNumber,        // Phone number to verify
-                30,                 // Timeout duration
-                TimeUnit.SECONDS,   // Unit of timeout
-                ConfrmationCodeActivity.this,               // Activity (for callback binding)
-                mCallbacks);
-
-
-
-        countDownTimer = new CountDownTimer(30000, 1000) {
+        countDownTimer = new CountDownTimer(60000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 counterView.setText(String.valueOf(millisUntilFinished / 1000));
@@ -94,6 +65,42 @@ public class ConfrmationCodeActivity extends AppCompatActivity {
 
     }
 
+    private void verifyPhoneNumber(){
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                phoneNumber,        // Phone number to verify
+                60,                 // Timeout duration
+                TimeUnit.SECONDS,   // Unit of timeout
+                this,               // Activity (for callback binding)
+                mCallbacks);
+
+    }
+
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+        @Override
+        public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+//            String code= phoneAuthCredential.getSmsCode();
+//            if (code !=null) {
+//                PhoneAuthCredential credential = PhoneAuthProvider.getCredential(codeSent, code);
+//                signInWithPhoneAuthCredential(credential);
+//
+//            }
+        }
+
+        @Override
+        public void onVerificationFailed(@NonNull FirebaseException e) {
+            Toast.makeText(ConfrmationCodeActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
+
+        }
+
+        @Override
+        public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+            super.onCodeSent(s, forceResendingToken);
+            codeSent = s;
+            Log.d("phone_info",s);
+        }
+    };
+
+
     private void onClick() {
         confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,12 +114,9 @@ public class ConfrmationCodeActivity extends AppCompatActivity {
         resendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                        phoneNumber,        // Phone number to verify
-                        60,                 // Timeout duration
-                        TimeUnit.SECONDS,   // Unit of timeout
-                        ConfrmationCodeActivity.this,               // Activity (for callback binding)
-                        mCallbacks);
+
+                verifyPhoneNumber();
+
                 Log.d("check", "clicked");
                 countDownTimer.start();
                 resendBtn.setClickable(false);
@@ -144,7 +148,6 @@ public class ConfrmationCodeActivity extends AppCompatActivity {
                         } else {
                             Log.w("fail", "signInWithCredential:failure", task.getException());
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                                // The verification code entered was invalid
                                 Toast.makeText(ConfrmationCodeActivity.this,"Invalid code",Toast.LENGTH_LONG).show();
                             }
                         }

@@ -65,9 +65,9 @@ public class SigninFragment extends Fragment {
             Toast.makeText(getContext(), "You need To Fill Field", Toast.LENGTH_LONG).show();
 
         } else {
-//            ConfrmationCodeDialogBox codeDialogBox = new ConfrmationCodeDialogBox(getActivity(),finisher,"+98"+sPhone,getActivity());
-//            codeDialogBox.show();
-
+            Intent intent=new Intent(getContext(),ConfrmationCodeActivity.class);
+            intent.putExtra("phone","+98"+sPhone);
+            getContext().startActivity(intent);
         }
 
     }
