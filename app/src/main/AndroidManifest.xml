@@ -44,6 +44,7 @@
             android:label="Payment Scanner" />
 
         <activity android:name=".ConfrmationCodeActivity"
+            android:label="Confirm Phone Number"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
 
 

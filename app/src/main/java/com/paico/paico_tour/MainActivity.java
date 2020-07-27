@@ -37,12 +37,7 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(new Intent(MainActivity.this, DrawerActivity.class));
                             finish();
                         } else {
-                            SigninFragment signinFragment = new SigninFragment(new Finisher() {
-                                @Override
-                                public void finishActivity() {
-                                    finish();
-                                }
-                            });
+                            SigninFragment signinFragment = new SigninFragment();
                             getSupportFragmentManager().beginTransaction().add(R.id.main_activity_fragment_container, signinFragment).addToBackStack(null).commit();
                         }
                     }

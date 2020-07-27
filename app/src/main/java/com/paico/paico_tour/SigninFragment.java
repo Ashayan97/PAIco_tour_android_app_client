@@ -26,12 +26,12 @@ public class SigninFragment extends Fragment {
     private EditText phone;
     private ImageButton submit;
     private FirebaseAuth mAuth;
-
-    private Finisher finisher;
-
-    public SigninFragment(Finisher finisher) {
-        this.finisher = finisher;
-    }
+//
+//    private Finisher finisher;
+//
+//    public SigninFragment(Finisher finisher) {
+//        this.finisher = finisher;
+//    }
 
 
     @Nullable
@@ -69,7 +69,6 @@ public class SigninFragment extends Fragment {
             intent.putExtra("phone","+98"+sPhone);
             getContext().startActivity(intent);
         }
-
     }
 
     private void findView(View view) {

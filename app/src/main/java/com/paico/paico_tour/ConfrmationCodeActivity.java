@@ -142,7 +142,7 @@ public class ConfrmationCodeActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = task.getResult().getUser();
-                            startActivity(new Intent(ConfrmationCodeActivity.this, MapsActivity.class));
+                            startActivity(new Intent(ConfrmationCodeActivity.this, DrawerActivity.class));
                             finish();
                             // ...
                         } else {
