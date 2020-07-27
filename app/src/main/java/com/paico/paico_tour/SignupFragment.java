@@ -92,8 +92,8 @@ public class SignupFragment extends Fragment {
 //                                    }
 //                                }
 //                            });
-                    ConfrmationCodeDialogBox confrmationCodeDialogBox = new ConfrmationCodeDialogBox(getActivity(),finisher);
-                    confrmationCodeDialogBox.show();
+//                    ConfrmationCodeDialogBox confrmationCodeDialogBox = new ConfrmationCodeDialogBox(getActivity(),finisher);
+//                    confrmationCodeDialogBox.show();
 
                 }
             }

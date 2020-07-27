@@ -60,25 +60,14 @@ public class SigninFragment extends Fragment {
     }
 
     private void startSignIn() {
-
-        String sEmail = email.getText().toString();
         String sPhone = phone.getText().toString();
         if (TextUtils.isEmpty(sPhone)) {
-            Toast.makeText(getContext(), "You need To Fill both Fields", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "You need To Fill Field", Toast.LENGTH_LONG).show();
 
         } else {
-//            mAuth.
-//            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                @Override
-//                public void onComplete(@NonNull Task<AuthResult> task) {
-//                    if (!task.isSuccessful()) {
-//                        Toast.makeText(getContext(), "LogIn Problem!", Toast.LENGTH_LONG).show();
-//                    }else {
-//                        startActivity(new Intent(getContext(), DrawerActivity.class));
-//                        finisher.finishActivity();
-//                    }
-//                }
-//            });
+//            ConfrmationCodeDialogBox codeDialogBox = new ConfrmationCodeDialogBox(getActivity(),finisher,"+98"+sPhone,getActivity());
+//            codeDialogBox.show();
+
         }
 
     }
