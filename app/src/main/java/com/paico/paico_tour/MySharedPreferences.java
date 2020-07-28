@@ -3,6 +3,9 @@ package com.paico.paico_tour;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.google.gson.Gson;
+import com.paico.paico_tour.object_classes.User;
+
 public class MySharedPreferences {
     private static MySharedPreferences instance;
 
@@ -27,6 +30,21 @@ public class MySharedPreferences {
 
     public void setAccessKey(String str){
         editor.putString("acc_key",str);
+        editor.apply();
+    }
+
+
+    public User getUserInfo(){
+
+        Gson gson=new Gson();
+        return gson.fromJson(sharedPreferences.getString("user_info",null),User.class);
+    }
+
+
+    public void setUserInfo(User user){
+        Gson gson = new Gson();
+        String strInfo = gson.toJson(user);
+        editor.putString("user_info",strInfo);
         editor.apply();
     }
 
