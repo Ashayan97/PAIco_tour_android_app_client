@@ -160,27 +160,23 @@ public class ConfrmationCodeActivity extends AppCompatActivity {
 
     private void setBasicData(final FirebaseUser user) {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
+
         DatabaseReference ref = database.getReference("User");
 
         // Attach a listener to read the data at our posts reference
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Map<String, User> map = dataSnapshot.getValue(Map.class);
-                if (map != null) {
-                    if (!map.containsKey(user.getUid())) {
+                if (!dataSnapshot.hasChild(user.getUid())) {
                         User userData = new User();
                         userData.setPhoneNumber(user.getPhoneNumber());
                         FirebaseDatabase.getInstance().getReference("User").
                                 child(user.getUid()).setValue(userData);
-                    } else {
-                        User basicInfo = map.get(user.getUid());
-                        MySharedPreferences.getInstance(ConfrmationCodeActivity.this).setUserInfo(basicInfo);
-                    }
-                } else {
-                    User userData = new User();
-                    userData.setPhoneNumber(user.getPhoneNumber());
+                        MySharedPreferences.getInstance(ConfrmationCodeActivity.this).setUserInfo(userData);
 
+                } else {
+                    User userData = dataSnapshot.child(user.getUid()).getValue(User.class);
+                    userData.setPhoneNumber(user.getPhoneNumber());
                     FirebaseDatabase.getInstance().getReference("User").child(user.getUid()).setValue(userData);
                 }
             }

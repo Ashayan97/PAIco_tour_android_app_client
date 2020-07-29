@@ -37,7 +37,9 @@ public class MySharedPreferences {
     public User getUserInfo(){
 
         Gson gson=new Gson();
-        return gson.fromJson(sharedPreferences.getString("user_info",null),User.class);
+        String str= sharedPreferences.getString("user_info",null);
+        User user = gson.fromJson(str,User.class);
+        return user;
     }
 
 

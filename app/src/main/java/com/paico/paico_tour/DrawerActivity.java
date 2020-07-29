@@ -2,14 +2,25 @@ package com.paico.paico_tour;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.paico.paico_tour.object_classes.User;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -19,10 +30,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.util.Map;
+
 public class DrawerActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private Button logOut;
+    private TextView headerUsername;
+    private TextView headerInfo;
+    private ImageView headerImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +46,8 @@ public class DrawerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_drawer);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        logOut= findViewById(R.id.logout);
-        logOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(DrawerActivity.this,MainActivity.class));
-            }
-        });
+
+
 //        FloatingActionButton fab = findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -57,8 +67,60 @@ public class DrawerActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        View view = navigationView.getHeaderView(0);
+        findView(view);
     }
 
+    private void findView(View view) {
+        logOut= findViewById(R.id.logout);
+        headerImage= view.findViewById(R.id.header_user_profile_pic);
+        headerUsername = view.findViewById(R.id.header_username);
+        headerInfo = view.findViewById(R.id.header_info);
+//        setBasicInfo();
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                MySharedPreferences.getInstance(DrawerActivity.this).setUserInfo(null);
+                while (FirebaseAuth.getInstance().getCurrentUser() !=null) {
+                }
+                startActivity(new Intent(DrawerActivity.this,MainActivity.class));
+                finish();
+            }
+        });
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("User/"+ FirebaseAuth.getInstance().getCurrentUser().getUid());
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User user=dataSnapshot.getValue(User.class);
+                MySharedPreferences.getInstance(DrawerActivity.this).setUserInfo(user);
+                setBasicInfo();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+                Log.d("user_info", databaseError.getMessage());
+            }
+        });
+
+    }
+
+    private void setBasicInfo() {
+        User user=MySharedPreferences.getInstance(DrawerActivity.this).getUserInfo();
+        if (user.getName()==null)
+            headerUsername.setText(user.getPhoneNumber());
+        else
+            headerUsername.setText(user.getName());
+
+        if (user.getProfilePic()==null)
+            headerImage.setImageDrawable(getResources().getDrawable(R.drawable.profile_icon));
+        else
+            new ImageLoader(headerImage,null);
+        headerInfo.setText("Balance: "+user.getBalance());
+    }
 
 
     @Override
