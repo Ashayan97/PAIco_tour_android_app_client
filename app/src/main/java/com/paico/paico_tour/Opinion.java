@@ -4,6 +4,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
+import com.paico.paico_tour.object_classes.Places;
+
 import java.io.InputStream;
 
 

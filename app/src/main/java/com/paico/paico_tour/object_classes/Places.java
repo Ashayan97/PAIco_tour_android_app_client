@@ -1,4 +1,4 @@
-package com.paico.paico_tour;
+package com.paico.paico_tour.object_classes;
 
 import android.widget.RatingBar;
 
@@ -15,6 +15,7 @@ public class Places {
     private String hourTime;
     private String Administration;
     private String Address;
+    private int rateNumber;
 
     public String getAddress() {
         return Address;
@@ -111,4 +112,16 @@ public class Places {
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
     }
+
+    public int getRateNumber() {
+        return rateNumber;
+    }
+
+    public void setRateNumber(int rateNumber) {
+        this.rateNumber = rateNumber;
+    }
+
+
 }
+
+

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.paico.paico_tour.object_classes.Item;
+import com.paico.paico_tour.object_classes.Places;
 
 public class PlaceActivity extends AppCompatActivity {
 

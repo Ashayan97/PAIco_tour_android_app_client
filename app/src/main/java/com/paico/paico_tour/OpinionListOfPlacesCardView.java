@@ -1,6 +1,5 @@
 package com.paico.paico_tour;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -8,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -16,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
+import com.paico.paico_tour.object_classes.Places;
 
 public class OpinionListOfPlacesCardView extends RecyclerView.Adapter<OpinionListOfPlacesCardView.ViewHolder> {
 

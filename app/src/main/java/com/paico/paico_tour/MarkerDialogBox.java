@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
+import com.paico.paico_tour.object_classes.Places;
 
 public class MarkerDialogBox extends Dialog {
     private Places places;
