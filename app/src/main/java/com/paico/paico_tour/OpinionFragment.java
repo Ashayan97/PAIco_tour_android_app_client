@@ -59,10 +59,10 @@ public class OpinionFragment extends Fragment {
         Places[] places=new Places[1];
         Places places1=new Places();
         String[] img=new String[2];
-        img[0]="https://upload.wikimedia.org/wikipedia/commons/8/8d/Atashkadeh.jpg";
-        img[1]="https://www.itto.org/iran/image-bin/182212022751qu46coa1vz.jpg?fillit=700x420";
+//        img[0]="https://upload.wikimedia.org/wikipedia/commons/8/8d/Atashkadeh.jpg";
+//        img[1]="https://www.itto.org/iran/image-bin/182212022751qu46coa1vz.jpg?fillit=700x420";
         places1.setRate(3/2);
-        places1.setImgUrls(img);
+//        places1.setImgUrls(img);
         places1.setName("AtashKadeh");
         places1.setDescription("The Fire Temple of Yazd (آتشکده یزد), also known as Yazd Atash Behram (Persian: یزد آتش بهرام), is a Zoroastrian fire temple in Yazd, Yazd province, Iran. It enshrines the Atash Bahram, meaning “Victorious Fire”, dated to 470 AD. It is one of the nine Atash Bahrams, the only one of the highest grade fire in ancient Iran where Zoroastrians have practiced their religion since 400 BC; the other eight Atash Bahrams are in India.[1][2] According to Aga Rustam Noshiravan Belivani, of Sharifabad, the Anjuman-i Nasiri (elected Zoroastrian officials) opened the Yazd Atash Behram in the 1960s to non-Zoroastrian visitors.\n" +
                 "\n" +

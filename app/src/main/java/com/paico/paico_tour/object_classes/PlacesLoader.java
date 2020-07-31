@@ -20,14 +20,14 @@ public class PlacesLoader {
     }
 
 
-    public static ArrayList<Places> getPlacesArrayList() {
+    public ArrayList<Places> getPlacesArrayList() {
         return placesArrayList;
     }
 
-    public static void setPlacesArrayList(ArrayList<Places> placesArrayList) {
+    public void setPlacesArrayList(ArrayList<Places> placesArrayList) {
         PlacesLoader.placesArrayList = placesArrayList;
     }
-    public static void setPlacesArrayListItem(ArrayList<Places> placesArrayList) {
-        PlacesLoader.placesArrayList = placesArrayList;
+    public void setPlacesArrayListItem(Places places) {
+        PlacesLoader.placesArrayList.add(places);
     }
 }

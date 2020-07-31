@@ -10,14 +10,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class PlaceFragmentGalleryCardViewHandler extends RecyclerView.Adapter<PlaceFragmentGalleryCardViewHandler.ViewHolder> {
 
-    private String[] imgUrls;
+    private ArrayList<String> imgUrls;
 
-    public PlaceFragmentGalleryCardViewHandler(String[] imgUrls) {
+    public PlaceFragmentGalleryCardViewHandler(ArrayList<String> imgUrls) {
         this.imgUrls = imgUrls;
         if (imgUrls == null)
-            this.imgUrls = new String[0];
+            this.imgUrls = new ArrayList<>();
     }
 
     @NonNull
@@ -29,13 +31,13 @@ public class PlaceFragmentGalleryCardViewHandler extends RecyclerView.Adapter<Pl
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        new ImageLoader(holder.imageView, holder.progressBar).execute(imgUrls[position]);
+        new ImageLoader(holder.imageView, holder.progressBar).execute(imgUrls.get(position));
         holder.textView.setText(String.valueOf(position + 1));
     }
 
     @Override
     public int getItemCount() {
-        return imgUrls.length;
+        return imgUrls.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

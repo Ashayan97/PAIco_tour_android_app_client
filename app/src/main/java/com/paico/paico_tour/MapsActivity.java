@@ -41,7 +41,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.paico.paico_tour.object_classes.Places;
+import com.paico.paico_tour.object_classes.PlacesLoader;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -73,7 +73,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         super.onViewCreated(view, savedInstanceState);
         findView(view);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(getContext());
-        this.view=view;
+        this.view = view;
         onClick();
         locationPerm();
         SupportMapFragment mapFragment = (SupportMapFragment) FragmentManager.findFragment(view.findViewById(R.id.map));
@@ -151,7 +151,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         pay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getContext(),BarcodeReaderActivity.class);
+                Intent intent = new Intent(getContext(), BarcodeReaderActivity.class);
                 getContext().startActivity(intent);
             }
         });
@@ -179,8 +179,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
 
     private void markPlaces() {
         //TODO
-        LatLng atashkade = new LatLng(31.8812, 54.3733);
-        Marker marker = this.mMap.addMarker(new MarkerOptions().position(atashkade).title("Yazd Atashkadeh"));
+        final GoogleMap googleMap = this.mMap;
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("Places");
@@ -188,12 +187,14 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int size = dataSnapshot.child("size").getValue(Integer.class);
-
                 for (int i = 0; i < size; i++) {
-
+                    com.paico.paico_tour.object_classes.Places places = dataSnapshot.child(String.valueOf(i)).getValue(com.paico.paico_tour.object_classes.Places.class);
+                    places.getImgUrls().remove(0);
+                    PlacesLoader.getInstance().setPlacesArrayListItem(places);
+                    LatLng atashkade = new LatLng(places.getLat(), places.getLongitude());
+                    Marker marker = googleMap.addMarker(new MarkerOptions().position(atashkade).title(places.getName()));
+                    marker.setTag(places);
                 }
-                ArrayList<Places> places=dataSnapshot.getValue(ArrayList.class);
-
             }
 
             @Override
@@ -204,7 +205,6 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         });
 
 
-        marker.setTag(places1);
     }
 
     private void initializeMapAutocomplete() {

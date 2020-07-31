@@ -2,11 +2,13 @@ package com.paico.paico_tour.object_classes;
 
 import android.widget.RatingBar;
 
+import java.util.ArrayList;
+
 public class Places {
     private double lat;
     private double longitude;
     private float rate;
-    private String[] imgUrls;
+    private ArrayList<String> imgUrls;
     private String name;
     private String description;
     private String videoUrl;
@@ -81,13 +83,15 @@ public class Places {
         this.longitude = longitude;
     }
 
-    public String[] getImgUrls() {
+    public ArrayList<String> getImgUrls() {
         return imgUrls;
     }
 
-    public void setImgUrls(String[] imgUrls) {
+
+    public void setImgUrls(ArrayList<String> imgUrls) {
         this.imgUrls = imgUrls;
     }
+
 
     public String getName() {
         return name;
