@@ -178,7 +178,6 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
     }
 
     private void markPlaces() {
-        //TODO
         final GoogleMap googleMap = this.mMap;
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();

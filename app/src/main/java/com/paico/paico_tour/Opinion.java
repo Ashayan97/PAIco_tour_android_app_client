@@ -7,6 +7,7 @@ import android.util.Log;
 import com.paico.paico_tour.object_classes.Places;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 
 
 public class Opinion {
@@ -14,41 +15,10 @@ public class Opinion {
     private String description;
     private float rate;
     private String profilePicAddress;
-    private Places[] places;
-    private String[] galleryUrls;
-    private Places[] placesGallery;
+    private ArrayList<Places> places;
+    private ArrayList<String> galleryUrls;
+    private ArrayList<Places> placesGallery;
 
-    public Opinion(String username, String description, float rate, String profilePicAddress) {
-        this.username = username;
-        this.description = description;
-        this.rate = rate;
-        this.profilePicAddress = profilePicAddress;
-    }
-
-
-    public Places[] getPlacesGallery() {
-        return placesGallery;
-    }
-
-    public void setPlacesGallery(Places[] placesGallery) {
-        this.placesGallery = placesGallery;
-    }
-
-    public String[] getGalleryUrls() {
-        return galleryUrls;
-    }
-
-    public void setGalleryUrls(String[] galleryUrls) {
-        this.galleryUrls = galleryUrls;
-    }
-
-    public Places[] getPlaces() {
-        return places;
-    }
-
-    public void setPlaces(Places[] places) {
-        this.places = places;
-    }
 
     public String getUsername() {
         return username;
@@ -78,23 +48,33 @@ public class Opinion {
         return profilePicAddress;
     }
 
-    public Bitmap getProfilePic() {
-        ;
-        String urldisplay = profilePicAddress;
-        Bitmap mIcon11 = null;
-        try {
-            InputStream in = new java.net.URL(urldisplay).openStream();
-            mIcon11 = BitmapFactory.decodeStream(in);
-        } catch (Exception e) {
-            Log.e("Error", e.getMessage());
-            e.printStackTrace();
-        }
-        return mIcon11;
-
-    }
-
     public void setProfilePicAddress(String profilePicAddress) {
         this.profilePicAddress = profilePicAddress;
     }
+
+    public ArrayList<Places> getPlaces() {
+        return places;
+    }
+
+    public void setPlaces(ArrayList<Places> places) {
+        this.places = places;
+    }
+
+    public ArrayList<String> getGalleryUrls() {
+        return galleryUrls;
+    }
+
+    public void setGalleryUrls(ArrayList<String> galleryUrls) {
+        this.galleryUrls = galleryUrls;
+    }
+
+    public ArrayList<Places> getPlacesGallery() {
+        return placesGallery;
+    }
+
+    public void setPlacesGallery(ArrayList<Places> placesGallery) {
+        this.placesGallery = placesGallery;
+    }
+
 
 }
