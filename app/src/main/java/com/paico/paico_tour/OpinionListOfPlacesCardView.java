@@ -15,17 +15,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.paico.paico_tour.object_classes.Places;
+import com.paico.paico_tour.object_classes.PlacesLoader;
+
+import java.util.ArrayList;
 
 public class OpinionListOfPlacesCardView extends RecyclerView.Adapter<OpinionListOfPlacesCardView.ViewHolder> {
 
-    private Places[] places;
+    private ArrayList<Integer> places;
     private Context context;
 
-    public OpinionListOfPlacesCardView(Context context,Places[] places) {
+    public OpinionListOfPlacesCardView(Context context,ArrayList<Integer> places) {
         this.context=context;
         this.places = places;
         if (places==null)
-            this.places=new Places[0];
+            this.places=new ArrayList<>();
     }
 
     @NonNull
@@ -37,16 +40,16 @@ public class OpinionListOfPlacesCardView extends RecyclerView.Adapter<OpinionLis
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        holder.placeName.setText(places[position].getName());
-        holder.description.setText(places[position].getDescription());
-        holder.point.setText(String.valueOf(places[position].getRate()));
-        holder.ratingBar.setRating(places[position].getRate());
-        new ImageLoader(holder.placeImage,null).execute(places[position].getProfilePicUrl());
+        holder.placeName.setText(PlacesLoader.getInstance().getPlacesArrayList().get(places.get(position)).getName());
+        holder.description.setText(PlacesLoader.getInstance().getPlacesArrayList().get(places.get(position)).getDescription());
+        holder.point.setText(String.valueOf(PlacesLoader.getInstance().getPlacesArrayList().get(places.get(position)).getRate()));
+        holder.ratingBar.setRating(PlacesLoader.getInstance().getPlacesArrayList().get(places.get(position)).getRate());
+        new ImageLoader(holder.placeImage,null).execute(PlacesLoader.getInstance().getPlacesArrayList().get(places.get(position)).getProfilePicUrl());
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Gson gson=new Gson();
-                String placeClass=gson.toJson(places[position]);
+                String placeClass=gson.toJson(PlacesLoader.getInstance().getPlacesArrayList().get(places.get(position)));
                 Intent intent=new Intent(context,PlaceActivity.class);
                 intent.putExtra("place",placeClass);
                 context.startActivity(intent);
@@ -57,7 +60,7 @@ public class OpinionListOfPlacesCardView extends RecyclerView.Adapter<OpinionLis
 
     @Override
     public int getItemCount() {
-        return places.length;
+        return places.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

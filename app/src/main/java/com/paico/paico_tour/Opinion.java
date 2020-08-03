@@ -14,10 +14,36 @@ public class Opinion {
     private String username;
     private String description;
     private float rate;
+    private int rateNumber;
     private String profilePicAddress;
-    private ArrayList<Places> places;
+    private ArrayList<Integer> places;
     private ArrayList<String> galleryUrls;
-    private ArrayList<Places> placesGallery;
+    private ArrayList<Integer> placesGallery;
+
+    public ArrayList<Integer> getPlaces() {
+        return places;
+    }
+
+    public void setPlaces(ArrayList<Integer> places) {
+        this.places = places;
+    }
+
+    public ArrayList<Integer> getPlacesGallery() {
+        return placesGallery;
+    }
+
+    public void setPlacesGallery(ArrayList<Integer> placesGallery) {
+        this.placesGallery = placesGallery;
+    }
+
+
+    public int getRateNumber() {
+        return rateNumber;
+    }
+
+    public void setRateNumber(int rateNumber) {
+        this.rateNumber = rateNumber;
+    }
 
 
     public String getUsername() {
@@ -52,28 +78,12 @@ public class Opinion {
         this.profilePicAddress = profilePicAddress;
     }
 
-    public ArrayList<Places> getPlaces() {
-        return places;
-    }
-
-    public void setPlaces(ArrayList<Places> places) {
-        this.places = places;
-    }
-
     public ArrayList<String> getGalleryUrls() {
         return galleryUrls;
     }
 
     public void setGalleryUrls(ArrayList<String> galleryUrls) {
         this.galleryUrls = galleryUrls;
-    }
-
-    public ArrayList<Places> getPlacesGallery() {
-        return placesGallery;
-    }
-
-    public void setPlacesGallery(ArrayList<Places> placesGallery) {
-        this.placesGallery = placesGallery;
     }
 
 

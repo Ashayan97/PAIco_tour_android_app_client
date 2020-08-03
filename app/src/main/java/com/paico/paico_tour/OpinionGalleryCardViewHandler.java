@@ -12,18 +12,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.paico.paico_tour.object_classes.Places;
+import com.paico.paico_tour.object_classes.PlacesLoader;
+
+import java.util.ArrayList;
 
 
 public class OpinionGalleryCardViewHandler extends RecyclerView.Adapter<OpinionGalleryCardViewHandler.ViewHolder> {
-    private String[] galleryUrls;
-    private Places[] places;
+    private ArrayList<String> galleryUrls;
+    private ArrayList<Integer> places;
 
 
-    public OpinionGalleryCardViewHandler(String[] galleryUrls, Places[] places) {
+    public OpinionGalleryCardViewHandler(ArrayList<String> galleryUrls, ArrayList<Integer> places) {
         this.galleryUrls = galleryUrls;
         this.places = places;
         if (galleryUrls==null)
-            this.galleryUrls=new String[0];
+            this.galleryUrls=new ArrayList<>();
     }
 
     @NonNull
@@ -37,15 +40,15 @@ public class OpinionGalleryCardViewHandler extends RecyclerView.Adapter<OpinionG
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.placeName.setText(places[position].getName());
-        new ImageLoader(holder.placeImage,holder.progressBar).execute(galleryUrls[position]);
-        holder.point.setText(String.valueOf(places[position].getRate()));
-        holder.ratingBar.setRating(places[position].getRate());
+        holder.placeName.setText(PlacesLoader.getInstance().getPlacesArrayList().get(places.get(position)).getName());
+        new ImageLoader(holder.placeImage,holder.progressBar).execute(galleryUrls.get(position));
+        holder.point.setText(String.valueOf(PlacesLoader.getInstance().getPlacesArrayList().get(places.get(position)).getRate()));
+        holder.ratingBar.setRating(PlacesLoader.getInstance().getPlacesArrayList().get(places.get(position)).getRate());
     }
 
     @Override
     public int getItemCount() {
-        return galleryUrls.length;
+        return galleryUrls.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

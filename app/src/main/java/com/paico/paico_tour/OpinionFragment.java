@@ -63,7 +63,7 @@ public class OpinionFragment extends Fragment {
 
     private void configureRecyclerView(View view) {
         opinionListView = (RecyclerView) view.findViewById(R.id.opinion_recycler_view);
-        ArrayList<Opinion> opinionList = new ArrayList<>();
+        final ArrayList<Opinion> opinionList = new ArrayList<>();
         //TODO opinionList = getOpinionList();
         //TODO remove below lines and add server API
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -72,9 +72,25 @@ public class OpinionFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int size = dataSnapshot.child("size").getValue(Integer.class);
-                for (int i = 0; i < size; i++) {
 
+                for (int i = 0; i < size; i++) {
+                    opinionList.add(dataSnapshot.child(String.valueOf(i)).getValue(Opinion.class));
                 }
+
+                Comparator<Opinion> comparator = new Comparator<Opinion>() {
+                    @Override
+                    public int compare(Opinion o1, Opinion o2) {
+                        if (o1.getRate() >= o2.getRate())
+                            return -1;
+                        if (o1.getRate() < o2.getRate())
+                            return 1;
+                        return 0;
+                    }
+                };
+                Collections.sort(opinionList, comparator);
+                OpinionViewCardViewHandler opinionAdapter = new OpinionViewCardViewHandler(opinionList, getContext());
+                opinionListView.setAdapter(opinionAdapter);
+                opinionListView.setLayoutManager(new LinearLayoutManager(getActivity()));
             }
 
             @Override
@@ -85,20 +101,6 @@ public class OpinionFragment extends Fragment {
         });
 
 
-        Comparator<Opinion> comparator = new Comparator<Opinion>() {
-            @Override
-            public int compare(Opinion o1, Opinion o2) {
-                if (o1.getRate() >= o2.getRate())
-                    return -1;
-                if (o1.getRate() < o2.getRate())
-                    return 1;
-                return 0;
-            }
-        };
-//        Collections.sort(opinionList, comparator);
-//        OpinionViewCardViewHandler opinionAdapter = new OpinionViewCardViewHandler(opinionList,getContext());
-//        opinionListView.setAdapter(opinionAdapter);
-//        opinionListView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
     }
 }
