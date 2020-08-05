@@ -3,16 +3,16 @@ package com.paico.paico_tour;
 import java.util.Date;
 
 public class Transactions {
-    private Date date;
+    private String date;
     private String id;
     private String amount;
     private String title;
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -40,10 +40,4 @@ public class Transactions {
         this.title = title;
     }
 
-    public Transactions(Date date, String id, String amount, String title) {
-        this.date = date;
-        this.id = id;
-        this.amount = amount;
-        this.title = title;
-    }
 }

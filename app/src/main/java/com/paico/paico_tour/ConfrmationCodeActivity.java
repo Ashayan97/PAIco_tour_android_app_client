@@ -28,6 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.paico.paico_tour.object_classes.User;
+import com.paico.paico_tour.object_classes.UserHolder;
 
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -172,12 +173,10 @@ public class ConfrmationCodeActivity extends AppCompatActivity {
                         userData.setPhoneNumber(user.getPhoneNumber());
                         FirebaseDatabase.getInstance().getReference("User").
                                 child(user.getUid()).setValue(userData);
-                        MySharedPreferences.getInstance(ConfrmationCodeActivity.this).setUserInfo(userData);
-
+                        UserHolder.getInstance().setUser(userData);
                 } else {
                     User userData = dataSnapshot.child(user.getUid()).getValue(User.class);
-                    userData.setPhoneNumber(user.getPhoneNumber());
-                    FirebaseDatabase.getInstance().getReference("User").child(user.getUid()).setValue(userData);
+                    UserHolder.getInstance().setUser(userData);
                 }
             }
 

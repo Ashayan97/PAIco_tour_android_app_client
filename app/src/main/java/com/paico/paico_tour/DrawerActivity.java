@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.paico.paico_tour.object_classes.User;
+import com.paico.paico_tour.object_classes.UserHolder;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -95,7 +96,7 @@ public class DrawerActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user=dataSnapshot.getValue(User.class);
-                MySharedPreferences.getInstance(DrawerActivity.this).setUserInfo(user);
+                UserHolder.getInstance().setUser(user);
                 setBasicInfo();
             }
 
@@ -109,7 +110,7 @@ public class DrawerActivity extends AppCompatActivity {
     }
 
     private void setBasicInfo() {
-        User user=MySharedPreferences.getInstance(DrawerActivity.this).getUserInfo();
+        User user=UserHolder.getInstance().getUser();
         if (user.getName()==null)
             headerUsername.setText(user.getPhoneNumber());
         else

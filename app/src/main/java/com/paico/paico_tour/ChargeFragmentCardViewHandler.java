@@ -29,7 +29,7 @@ public class ChargeFragmentCardViewHandler extends RecyclerView.Adapter<ChargeFr
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.amount.setText(transactions.get(position).getAmount());
         holder.id.setText(transactions.get(position).getId());
-        holder.date.setText(transactions.get(position).getDate().toString());
+        holder.date.setText(transactions.get(position).getDate());
     }
 
     @Override

@@ -1,9 +1,22 @@
 package com.paico.paico_tour.object_classes;
 
+import com.paico.paico_tour.Transactions;
+
+import java.util.ArrayList;
+
 public class User {
     private String name=null;
     private String balance="0";
     private String profilePic=null;
+    private ArrayList<Transactions> transactions=null;
+
+    public ArrayList<Transactions> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(ArrayList<Transactions> transactions) {
+        this.transactions = transactions;
+    }
 
     public String getProfilePic() {
         return profilePic;

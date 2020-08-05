@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.paico.paico_tour.object_classes.UserHolder;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -32,18 +34,8 @@ public class TransactionFragment extends Fragment {
     }
 
     private void setView() {
-        //TODO add api of getting transactions
-        ArrayList<Transactions> transactions = new ArrayList<>();
-        Transactions fake1 = new Transactions(new Date(), "6984342", "+1000T", "charge");
-        Transactions fake2 = new Transactions(new Date(), "2345968", "-1000T", "Bus ticket");
-        Transactions fake3 = new Transactions(new Date(), "9654742", "+5000T", "charge");
-        Transactions fake4 = new Transactions(new Date(), "6485478", "-9000T", "cinema ticket");
-        transactions.add(fake1);
-        transactions.add(fake2);
-        transactions.add(fake3);
-        transactions.add(fake4);
 
-        TransactionCardViewHandler transactionCardViewHandler = new TransactionCardViewHandler(transactions);
+        TransactionCardViewHandler transactionCardViewHandler = new TransactionCardViewHandler(UserHolder.getInstance().getUser().getTransactions());
         recyclerView.setAdapter(transactionCardViewHandler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
