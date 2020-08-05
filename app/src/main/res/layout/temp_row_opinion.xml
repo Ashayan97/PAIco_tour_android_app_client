@@ -15,10 +15,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="5"
-            android:paddingLeft="@dimen/small_margin"
+            android:layout_height="40dp"
             android:orientation="horizontal"
+            android:paddingLeft="@dimen/small_margin"
             android:paddingTop="@dimen/small_margin">
 
             <ImageView
@@ -39,16 +38,15 @@
             <RatingBar
                 android:id="@+id/opinion_ratingBar"
                 style="?android:attr/ratingBarStyleSmall"
-                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:numStars="5" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="4"
+            android:layout_height="50dp"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/small_margin"
             android:paddingBottom="@dimen/small_margin">
@@ -66,7 +64,7 @@
                 android:layout_marginLeft="@dimen/small_margin"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="50dp" />
 
         </LinearLayout>
     </LinearLayout>

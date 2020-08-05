@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/opinion_dialog_places_layout"
-        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginTop="10dp"
+        android:background="#F5F5F5"
         android:clickable="true"
-        android:focusable="true">
+        android:focusable="true"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="50"
-            android:paddingLeft="@dimen/small_margin"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:paddingLeft="@dimen/small_margin"
             android:paddingTop="@dimen/small_margin">
 
             <ImageView
@@ -23,64 +26,67 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/wall_distance"
                 android:layout_weight="30"
-                android:scaleType="centerInside"
                 android:adjustViewBounds="true"
+                android:scaleType="centerInside"
                 android:src="@drawable/place_icon" />
 
-            <TextView
-                android:id="@+id/opinion_dialog_places_place_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="30"
-                android:gravity="center"
-                android:text="@string/place_name" />
+
+                        <TextView
+                            android:id="@+id/opinion_dialog_places_place_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="30"
+                            android:gravity="center"
+                            android:text="@string/place_name"
+                            android:textColor="@color/black" />
+
+
+
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="40"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
-            <RatingBar
-                android:id="@+id/opinion_dialog_places_rating_bar"
-                style="?android:attr/ratingBarStyleSmall"
-                android:layout_gravity="center"
-                android:layout_marginRight="@dimen/small_margin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:numStars="5" />
+                android:layout_weight="40"
+                android:orientation="vertical">
+
+                <RatingBar
+                    android:id="@+id/opinion_dialog_places_rating_bar"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/small_margin"
+                    android:numStars="5" />
 
                 <TextView
-                    android:layout_marginRight="@dimen/small_margin"
-                    android:gravity="center"
+                    android:id="@+id/opinion_dialog_places_place_point"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/opinion_dialog_places_place_point"
+                    android:layout_marginRight="@dimen/small_margin"
+                    android:gravity="center"
                     android:text="5"
-                    android:textColor="@color/black"
-                    />
+                    android:textColor="@color/black" />
 
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="60"
-            android:padding="5dp"
+            android:layout_height="50dp"
             android:orientation="horizontal"
-            >
+            android:padding="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:gravity="center"
                 android:layout_gravity="center"
-                android:text="@string/description" />
+                android:gravity="center"
+                android:text="@string/description"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/opinion_dialog_places_place_description"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="46dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/small_margin"
                 android:textColor="@color/black" />

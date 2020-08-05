@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="@dimen/small_margin"
     android:background="@drawable/dialog_background2"
     android:orientation="vertical"
@@ -31,9 +31,9 @@
                     android:id="@+id/opinion_dialog_profile_pic"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:scaleType="centerInside"
-                    android:adjustViewBounds="true"
                     android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
                     android:src="@drawable/profile_icon" />
 
                 <TextView
@@ -89,16 +89,30 @@
                     android:gravity="center"
                     android:text="@string/description" />
 
-                <TextView
-                    android:id="@+id/opinion_dialog_description"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/small_margin"
-                    android:background="@drawable/description_background"
                     android:padding="5dp"
-                    android:text="some thing about the city"
-                    android:textColor="@color/black" />
+                    android:background="@drawable/description_background">
 
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/opinion_dialog_description"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="some thing about the city"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+                    </ScrollView>
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
@@ -126,8 +140,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                >
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
             </androidx.recyclerview.widget.RecyclerView>
 
@@ -162,6 +175,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -175,12 +189,11 @@
             android:layout_height="match_parent"
             android:layout_margin="8dp"
             android:background="@drawable/buttom_shape"
-            android:textColor="@color/white"
             android:drawableBottom="@drawable/star_icon"
             android:gravity="center"
             android:padding="@dimen/small_margin"
             android:text="@string/get_point"
-  />
+            android:textColor="@color/white" />
 
     </LinearLayout>
 </LinearLayout>
