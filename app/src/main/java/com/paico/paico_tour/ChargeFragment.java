@@ -14,6 +14,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+import com.paico.paico_tour.object_classes.UserHolder;
+
 import java.util.ArrayList;
 
 public class ChargeFragment extends Fragment {
@@ -37,14 +41,19 @@ public class ChargeFragment extends Fragment {
     }
 
     private void setupView() {
-        //ToDo setup view information
+        balanceAmount.setText(UserHolder.getInstance().getUser().getBalance());
     }
 
     private void onClick() {
-        chargeRecyclerView.setOnClickListener(new View.OnClickListener() {
+        chargeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO add charging api
+                if (addMoneyAmount.getText()!=null && !addMoneyAmount.getText().toString().equals("")){
+                String newBalance=String.valueOf(Integer.valueOf(UserHolder.getInstance().getUser().getBalance())+Integer.valueOf(addMoneyAmount.getText().toString()));
+                FirebaseDatabase.getInstance().getReference("User/" + FirebaseAuth.getInstance().getCurrentUser().getUid()).
+                        child("balance").setValue(newBalance);
+                balanceAmount.setText(newBalance);
+                }
             }
         });
     }
