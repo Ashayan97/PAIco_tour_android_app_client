@@ -95,9 +95,11 @@ public class DrawerActivity extends AppCompatActivity {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
                 User user=dataSnapshot.getValue(User.class);
                 UserHolder.getInstance().setUser(user);
                 setBasicInfo();
+                }
             }
 
             @Override

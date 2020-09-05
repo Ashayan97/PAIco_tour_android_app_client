@@ -1,5 +1,6 @@
 package com.paico.paico_tour;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,19 +26,23 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.paico.paico_tour.object_classes.User;
 import com.paico.paico_tour.object_classes.UserHolder;
 
 import java.io.File;
+import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
 public class SettingFragment extends Fragment {
     private EditText fullName;
-    private EditText password;
-    private EditText phone;
-    private EditText date;
-    private EditText email;
+    private TextView phone;
+    private TextView balance;
 
     private Button submit;
     private Button edit;
@@ -55,6 +61,7 @@ public class SettingFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        getStoragePermission();
         findView(view);
         setView();
         onClick();
@@ -63,13 +70,16 @@ public class SettingFragment extends Fragment {
 
     private void setView() {
         User user = UserHolder.getInstance().getUser();
-        if (user.getName().equals(null))
+        if (user.getName()==null)
             fullName.setHint("No Name Exist");
         else
             fullName.setText(user.getName());
         phone.setText(user.getPhoneNumber());
+        balance.setText(user.getBalance());
         if (user.getProfilePic()!=null)
             new ImageLoader(gallery,progressBar).execute(user.getProfilePic());
+        else
+            progressBar.setVisibility(View.INVISIBLE);
 
 
     }
@@ -95,6 +105,19 @@ public class SettingFragment extends Fragment {
         });
     }
 
+    private void getStoragePermission() {
+        Dexter.withContext(getContext()).withPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE})
+                .withListener(new MultiplePermissionsListener() {
+                    @Override
+                    public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> list, PermissionToken permissionToken) {
+
+                    }
+                }).check();
+    }
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -106,22 +129,25 @@ public class SettingFragment extends Fragment {
 
         Uri uri = data.getData();
 
-        Uri file = Uri.fromFile(new File("path/to/images/rivers.jpg"));
+
         StorageReference riversRef = mStorageRef.child("profiles").child(uri.getLastPathSegment());
 
-        riversRef.putFile(file)
+        riversRef.putFile(uri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         // Get a URL to the uploaded content
                         Uri downloadUrl = taskSnapshot.getUploadSessionUri();
-
+                        User user=UserHolder.getInstance().getUser();
+                        user.setProfilePic(downloadUrl.toString());
                         progressDialog.dismiss();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception exception) {
+                        exception.printStackTrace();
+                        progressDialog.dismiss();
                         Toast.makeText(getContext(),"Upload failed",Toast.LENGTH_LONG).show();
                         // Handle unsuccessful uploads
                         // ...
@@ -133,7 +159,7 @@ public class SettingFragment extends Fragment {
     private void findView(View view) {
         fullName = view.findViewById(R.id.setting_fragment_name);
         phone = view.findViewById(R.id.setting_fragment_phone);
-        email = view.findViewById(R.id.setting_fragment_email);
+        balance = view.findViewById(R.id.setting_fragment_email);
         submit = view.findViewById(R.id.setting_fragment_submit_btn);
         edit = view.findViewById(R.id.setting_fragment_edit_btn);
         gallery = view.findViewById(R.id.setting_fragment_gallery);

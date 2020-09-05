@@ -147,8 +147,7 @@ public class ConfrmationCodeActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             FirebaseUser user = task.getResult().getUser();
                             setBasicData(user);
-                            startActivity(new Intent(ConfrmationCodeActivity.this, DrawerActivity.class));
-                            finish();
+
                         } else {
                             Log.w("fail", "signInWithCredential:failure", task.getException());
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
@@ -171,9 +170,11 @@ public class ConfrmationCodeActivity extends AppCompatActivity {
                 if (!dataSnapshot.hasChild(user.getUid())) {
                         User userData = new User();
                         userData.setPhoneNumber(user.getPhoneNumber());
-                        FirebaseDatabase.getInstance().getReference("User").
+                    UserHolder.getInstance().setUser(userData);
+                    FirebaseDatabase.getInstance().getReference("User").
                                 child(user.getUid()).setValue(userData);
-                        UserHolder.getInstance().setUser(userData);
+                    startActivity(new Intent(ConfrmationCodeActivity.this, DrawerActivity.class));
+                    finish();
                 } else {
                     User userData = dataSnapshot.child(user.getUid()).getValue(User.class);
                     UserHolder.getInstance().setUser(userData);
