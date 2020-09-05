@@ -27,6 +27,7 @@
                     android:src="@drawable/profile_pic"
                     android:id="@+id/setting_fragment_gallery"/>
                     <ProgressBar
+                        android:id="@+id/setting_fragment_profile_pic_progress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toTopOf="parent"
@@ -104,17 +105,17 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Email:"
+                    android:text="Balance:"
                     android:layout_margin="10dp"
                     android:textColor="@color/white"/>
-                <EditText
-                    android:inputType="textEmailAddress"
+                <TextView
                     android:clickable="false"
                     android:id="@+id/setting_fragment_email"
                     android:textColor="@color/white"
-                    android:text="sshayan997@gmail.com"
+                    android:text="0"
+                    android:textSize="20sp"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="30dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp" />
                 <View

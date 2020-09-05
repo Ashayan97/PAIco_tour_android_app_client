@@ -25,6 +25,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class ChargeFragment extends Fragment {
     private EditText addMoneyAmount;
@@ -80,6 +82,15 @@ public class ChargeFragment extends Fragment {
         });
     }
     private void updateView(){
+        Comparator<Transactions> comparator = new Comparator<Transactions>() {
+            @Override
+            public int compare(Transactions o1, Transactions o2) {
+                if (o1.getId().compareTo(o2.getId())==1)
+                    return 1;
+                else return -1;
+            }
+        };
+        Collections.sort(UserHolder.getInstance().getUser().getCharges(), comparator);
         ChargeFragmentCardViewHandler handler = new ChargeFragmentCardViewHandler(UserHolder.getInstance().getUser().getCharges());
         chargeRecyclerView.setAdapter(handler);
         chargeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
