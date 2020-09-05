@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.paico.paico_tour.object_classes.UserHolder;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
 public class TransactionFragment extends Fragment {
@@ -34,7 +36,15 @@ public class TransactionFragment extends Fragment {
     }
 
     private void setView() {
-
+        Comparator<Transactions> comparator = new Comparator<Transactions>() {
+            @Override
+            public int compare(Transactions o1, Transactions o2) {
+                if (o1.getId().compareTo(o2.getId())==1)
+                    return 1;
+                else return -1;
+            }
+        };
+        Collections.sort(UserHolder.getInstance().getUser().getTransactions(), comparator);
         TransactionCardViewHandler transactionCardViewHandler = new TransactionCardViewHandler(UserHolder.getInstance().getUser().getTransactions());
         recyclerView.setAdapter(transactionCardViewHandler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

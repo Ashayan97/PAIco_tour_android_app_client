@@ -50,6 +50,7 @@ public class BarcodeReaderActivity extends AppCompatActivity {
     private Button startScanning;
     private FirebaseVisionBarcodeDetectorOptions options;
     private FirebaseVisionBarcodeDetector detector;
+    private boolean check=false;
 
 
     @Override
@@ -83,6 +84,7 @@ public class BarcodeReaderActivity extends AppCompatActivity {
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
                 isDetected = !isDetected;
+                check=false;
                 startScanning.setEnabled(isDetected);
             }
         });
@@ -133,8 +135,12 @@ public class BarcodeReaderActivity extends AppCompatActivity {
                         if (str[0].equals("Pico-Tour")){
                             if (Integer.valueOf(UserHolder.getInstance().getUser().getBalance())<Integer.valueOf(str[2]))
                                 Toast.makeText(this,"you are low in credit",Toast.LENGTH_LONG).show();
-                            else
-                                payDialog(str[1],str[2]);
+                            else {
+                                if (!check) {
+                                    check=true;
+                                    payDialog(str[1], str[2]);
+                                }
+                            }
 
                         }
                         break;

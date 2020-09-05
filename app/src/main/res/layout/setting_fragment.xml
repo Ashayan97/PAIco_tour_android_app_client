@@ -19,7 +19,7 @@
                 android:layout_height="200dp"
                 android:orientation="vertical">
 
-                <androidx.recyclerview.widget.RecyclerView
+                <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/setting_fragment_gallery"/>
@@ -37,13 +37,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/full_name"
+                    android:text="Name"
                     android:layout_margin="10dp"
                     android:textColor="@color/white"/>
 
                 <EditText
                     android:inputType="textPersonName"
-                    android:editable="false"
                     android:clickable="false"
                     android:textColor="@color/white"
                     android:text="name"
@@ -61,45 +60,6 @@
                     android:layout_marginBottom="10dp"
                     android:background="@color/black" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Password:"
-                    android:layout_margin="10dp"
-                    android:textColor="@color/white"/>
-                <EditText
-                    android:clickable="false"
-                    android:id="@+id/setting_fragment_password"
-                    android:inputType="textPassword"
-                    android:textColor="@color/white"
-                    android:text="@string/password"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp" />
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@color/black" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/date"
-                    android:layout_margin="10dp"
-                    android:textColor="@color/white"/>
-                <EditText
-                    android:inputType="date"
-                    android:clickable="false"
-                    android:textColor="@color/white"
-                    android:id="@+id/setting_fragment_date"
-                    android:text="date"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp" />
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -113,14 +73,14 @@
                     android:text="Phone Number:"
                     android:layout_margin="10dp"
                     android:textColor="@color/white"/>
-                <EditText
+                <TextView
                     android:inputType="phone"
                     android:clickable="false"
                     android:textColor="@color/white"
                     android:text="09178556367"
                     android:id="@+id/setting_fragment_phone"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="30dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp" />
                 <View
@@ -168,7 +128,7 @@
                         android:background="@drawable/window_dialog_background"
                         android:drawableTop="@drawable/submit3"
                         android:textColor="@color/white"
-                        android:text="submit"
+                        android:text="Save"
                         />
 
                     <Button
@@ -177,7 +137,7 @@
                         android:id="@+id/setting_fragment_edit_btn"
                         android:layout_height="60dp"
                         android:drawableTop="@drawable/edit_icon"
-                        android:text="Edit"
+                        android:text="Profile Picture"
                         android:background="@drawable/window_dialog_background"
                         android:textColor="@color/white"
 
