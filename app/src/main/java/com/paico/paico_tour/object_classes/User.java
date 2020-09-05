@@ -10,6 +10,17 @@ public class User {
     private String profilePic=null;
     private ArrayList<Transactions> transactions=null;
 
+    public ArrayList<Transactions> getCharges() {
+        return charges;
+    }
+
+    public void setCharges(ArrayList<Transactions> charges) {
+        this.charges = charges;
+    }
+
+    private ArrayList<Transactions> charges=null;
+
+
     public ArrayList<Transactions> getTransactions() {
         return transactions;
     }

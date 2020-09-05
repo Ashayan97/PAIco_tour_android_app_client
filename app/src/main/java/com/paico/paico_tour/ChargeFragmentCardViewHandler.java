@@ -14,7 +14,10 @@ public class ChargeFragmentCardViewHandler extends RecyclerView.Adapter<ChargeFr
     private ArrayList<Transactions> transactions;
 
     public ChargeFragmentCardViewHandler(ArrayList<Transactions> transactions) {
-        this.transactions = transactions;
+        if (transactions != null)
+            this.transactions = transactions;
+        else
+            this.transactions = new ArrayList<>();
     }
 
     @NonNull
@@ -41,11 +44,12 @@ public class ChargeFragmentCardViewHandler extends RecyclerView.Adapter<ChargeFr
         public TextView amount;
         public TextView id;
         public TextView date;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            amount= itemView.findViewById(R.id.charge_card_view_amount);
-            id= itemView.findViewById(R.id.charge_card_view_id);
-            date= itemView.findViewById(R.id.charge_card_view_date);
+            amount = itemView.findViewById(R.id.charge_card_view_amount);
+            id = itemView.findViewById(R.id.charge_card_view_id);
+            date = itemView.findViewById(R.id.charge_card_view_date);
         }
     }
 }

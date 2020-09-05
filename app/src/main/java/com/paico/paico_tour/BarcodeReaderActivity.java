@@ -19,6 +19,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.ml.vision.FirebaseVision;
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode;
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetector;
@@ -33,7 +35,12 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.otaliastudios.cameraview.CameraView;
 import com.otaliastudios.cameraview.frame.Frame;
 import com.otaliastudios.cameraview.frame.FrameProcessor;
+import com.paico.paico_tour.object_classes.User;
+import com.paico.paico_tour.object_classes.UserHolder;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class BarcodeReaderActivity extends AppCompatActivity {
@@ -122,30 +129,55 @@ public class BarcodeReaderActivity extends AppCompatActivity {
                 switch (value_type) {
                     //ToDo manage barcode scanner function
                     case FirebaseVisionBarcode.TYPE_TEXT:
-                        createDialog(item.getRawValue());
+                        String str[] = item.getRawValue().split("/");
+                        if (str[0].equals("Pico-Tour")){
+                            if (Integer.valueOf(UserHolder.getInstance().getUser().getBalance())<Integer.valueOf(str[2]))
+                                Toast.makeText(this,"you are low in credit",Toast.LENGTH_LONG).show();
+                            else
+                                payDialog(str[1],str[2]);
+
+                        }
                         break;
-                    case FirebaseVisionBarcode.TYPE_URL:
-                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(item.getRawValue()));
-                        startActivity(intent);
-                        break;
-                    case FirebaseVisionBarcode.TYPE_CONTACT_INFO:
-                        String info = new StringBuilder("Name: ")
-                                .append(item.getContactInfo().getName().getFormattedName())
-                                .append("\n")
-                                .append("Address: ")
-                                .append(item.getContactInfo().getAddresses().get(0).getAddressLines())
-                                .append("\n")
-                                .append("Email: ")
-                                .append(item.getContactInfo().getEmails().get(0).getAddress())
-                                .toString();
-                        createDialog(info);
-                        break;
+
                     default:
                         break;
 
                 }
             }
         }
+    }
+    private void payDialog(final String id, final String balance){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("You are paying "+balance+" for "+id+"\n Are you sure?").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (Integer.valueOf(UserHolder.getInstance().getUser().getBalance())>=Integer.valueOf(balance)){
+                    String newBalance = String.valueOf(Integer.valueOf(UserHolder.getInstance().getUser().getBalance()) - Integer.valueOf(balance));
+                    User user = UserHolder.getInstance().getUser();
+                    if (user.getTransactions() == null)
+                        user.setTransactions(new ArrayList<Transactions>());
+                    Transactions transaction = new Transactions();
+                    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+                    transaction.setId(FirebaseAuth.getInstance().getUid().substring(0, 2) + timeStamp);
+                    transaction.setAmount("- " + balance);
+                    String time= timeStamp.substring(0,4)+"/"+timeStamp.substring(4,6)+"/"+timeStamp.substring(6,8);
+                    transaction.setDate(time);
+                    transaction.setTitle(id);
+                    user.getTransactions().add(transaction);
+                    user.setBalance(newBalance);
+                    FirebaseDatabase.getInstance().getReference("User/" + FirebaseAuth.getInstance().getCurrentUser().getUid()).
+                            setValue(user);
+                    dialog.dismiss();
+                }
+            }
+        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+             dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     private void createDialog(String rawValue) {
