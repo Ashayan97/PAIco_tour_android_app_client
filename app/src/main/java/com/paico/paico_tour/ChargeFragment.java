@@ -68,7 +68,7 @@ public class ChargeFragment extends Fragment {
                     String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
                     transaction.setId(FirebaseAuth.getInstance().getUid().substring(0, 2) + timeStamp);
                     transaction.setAmount("+ " + addMoneyAmount.getText().toString());
-                    String time= timeStamp.substring(0,4)+"/"+timeStamp.substring(4,6)+"/"+timeStamp.substring(6,8);
+                    String time = timeStamp.substring(0, 4) + "/" + timeStamp.substring(4, 6) + "/" + timeStamp.substring(6, 8);
                     transaction.setDate(time);
                     transaction.setTitle("Charge");
                     user.getTransactions().add(transaction);
@@ -81,16 +81,18 @@ public class ChargeFragment extends Fragment {
             }
         });
     }
-    private void updateView(){
+
+    private void updateView() {
         Comparator<Transactions> comparator = new Comparator<Transactions>() {
             @Override
             public int compare(Transactions o1, Transactions o2) {
-                if (o1.getId().compareTo(o2.getId())==1)
+                if (o1.getId().compareTo(o2.getId()) == 1)
                     return 1;
                 else return -1;
             }
         };
-        Collections.sort(UserHolder.getInstance().getUser().getCharges(), comparator);
+        if (UserHolder.getInstance().getUser().getCharges() != null)
+            Collections.sort(UserHolder.getInstance().getUser().getCharges(), comparator);
         ChargeFragmentCardViewHandler handler = new ChargeFragmentCardViewHandler(UserHolder.getInstance().getUser().getCharges());
         chargeRecyclerView.setAdapter(handler);
         chargeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

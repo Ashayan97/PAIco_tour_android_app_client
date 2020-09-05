@@ -82,9 +82,6 @@ public class DrawerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                MySharedPreferences.getInstance(DrawerActivity.this).setUserInfo(null);
-                while (FirebaseAuth.getInstance().getCurrentUser() !=null) {
-                }
                 startActivity(new Intent(DrawerActivity.this,MainActivity.class));
                 finish();
             }

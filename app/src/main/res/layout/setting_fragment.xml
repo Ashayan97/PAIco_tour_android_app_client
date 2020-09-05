@@ -58,7 +58,7 @@
                     android:inputType="textPersonName"
                     android:clickable="false"
                     android:textColor="@color/white"
-                    android:text="name"
+                    android:hint="No Name Exist"
                     android:id="@+id/setting_fragment_name"
                     android:padding="@dimen/small_margin"
                     android:layout_width="match_parent"

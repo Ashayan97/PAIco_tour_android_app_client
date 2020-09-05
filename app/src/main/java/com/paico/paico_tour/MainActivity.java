@@ -2,6 +2,7 @@ package com.paico.paico_tour;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -38,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
                             finish();
                         } else {
                             SigninFragment signinFragment = new SigninFragment();
-                            getSupportFragmentManager().beginTransaction().add(R.id.main_activity_fragment_container, signinFragment).addToBackStack(null).commit();
+                            FragmentManager fragmentManager = getSupportFragmentManager();
+                            fragmentManager.beginTransaction().replace(R.id.main_activity_fragment_container, signinFragment).commit();
                         }
                     }
                 };
