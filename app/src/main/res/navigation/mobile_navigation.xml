@@ -29,6 +29,6 @@
     <fragment
         android:id="@+id/nav_setting"
         android:name="com.paico.paico_tour.SettingFragment"
-        android:label="@string/Setting"
+        android:label="Profile"
         tools:layout="@layout/setting_fragment" />
 </navigation>

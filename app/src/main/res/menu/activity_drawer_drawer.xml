@@ -23,7 +23,7 @@
         <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/setting_icon"
-            android:title="setting"/>
+            android:title="@string/profile"/>
     </group>
 
 

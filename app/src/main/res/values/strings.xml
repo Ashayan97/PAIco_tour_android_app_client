@@ -57,5 +57,6 @@
     <string name="full_name">Full name:</string>
     <string name="Setting" />
     <string name="log_out">Log out</string>
+    <string name="profile">Profile</string>
 
 </resources>

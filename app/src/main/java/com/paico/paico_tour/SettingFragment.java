@@ -6,11 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.paico.paico_tour.object_classes.User;
+import com.paico.paico_tour.object_classes.UserHolder;
 
 public class SettingFragment extends Fragment {
     private EditText fullName;
@@ -22,19 +26,31 @@ public class SettingFragment extends Fragment {
     private Button submit;
     private Button edit;
 
-    private RecyclerView gallery;
+    private ImageView gallery;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.setting_fragment,container,false);
+        return inflater.inflate(R.layout.setting_fragment, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         findView(view);
+        setView();
         onClick();
+
+    }
+
+    private void setView() {
+        User user = UserHolder.getInstance().getUser();
+        if (user.getName().equals(null))
+            fullName.setHint("No Name Exist");
+        else
+            fullName.setText(user.getName());
+        phone.setText(user.getPhoneNumber());
+
 
     }
 
@@ -51,27 +67,16 @@ public class SettingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //TODO
-                fullName.setClickable(true);
-                password.setClickable(true);
-                date.setClickable(true);
-                phone.setClickable(true);
-                email.setClickable(true);
-                submit.setClickable(true);
-                edit.setClickable(false);
             }
         });
     }
 
     private void findView(View view) {
-        fullName=view.findViewById(R.id.setting_fragment_name);
-        password = view.findViewById(R.id.setting_fragment_password);
-        phone=view.findViewById(R.id.setting_fragment_phone);
-        date=view.findViewById(R.id.setting_fragment_date);
-        email=view.findViewById(R.id.setting_fragment_email);
-
-        submit=view.findViewById(R.id.setting_fragment_submit_btn);
-        edit=view.findViewById(R.id.setting_fragment_edit_btn);
-
-        gallery=view.findViewById(R.id.setting_fragment_gallery);
+        fullName = view.findViewById(R.id.setting_fragment_name);
+        phone = view.findViewById(R.id.setting_fragment_phone);
+        email = view.findViewById(R.id.setting_fragment_email);
+        submit = view.findViewById(R.id.setting_fragment_submit_btn);
+        edit = view.findViewById(R.id.setting_fragment_edit_btn);
+        gallery = view.findViewById(R.id.setting_fragment_gallery);
     }
 }
